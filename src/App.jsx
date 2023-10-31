@@ -12,8 +12,9 @@ function App() {
       <Navbar />
       <Profile />
       <Skills />
-      <Projects />
+      <Projects2 />
       <Timeline />
+      <LetsConnect />
     </div>
   );
 }
@@ -556,26 +557,42 @@ function Skills() {
   );
 }
 
-// Project Section card
-
-function Projects() {
+function Projects2() {
   return (
-    <section>
-      <h1 className="text-center text-[64px] underline"> Projects</h1>
-      <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 gap-y-[10px] justify-items-center items-center">
-        <li className="w-80 h-96">
-          <a
-            href="#"
-            className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-            <img
-              className="object-cover w-2/5 h-full rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
-              src="/github.svg"
-              alt=""
-            />
-            <div className="relative p-4 leading-normal">
+    <div className="w-full min-h-screen  p-6">
+      <h1 className="text-center text-4xl sm:text-5xl md:text-6xl underline pb-[20px]">
+        {' '}
+        Projects
+      </h1>
+
+      <div className="flex flex-wrap justify-center">
+        <div className="flex flex-col justify-center bg-white rounded-lg shadow-md w-full m-6 overflow-hidden sm:w-52 py-40 px-24 m-[15px]">
+          <img
+            className=" w-[80%] h-[100%] rounded-lg border  mx-auto my-[25px] "
+            src="/TradeM.png"
+            alt=""
+          />
+
+          <div className="flex justify-between items-center">
+            <h5 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-black px-[20px] my-[10px]">
+              TradeM
+            </h5>
+
+            <div className="flex gap-[15px] justify-center align-middle">
               <a
-                className="absolute top-0 right-0 text-xl flex items-center justify-center bg-slate-500 hover:bg-slate-300 rounded-2xl"
-                href="https://github.com/brianhngo"
+                href="https://tradem-6faae.web.app/"
+                title="new window icons"
+                className="">
+                {' '}
+                <img
+                  className="w-[38px] h-[38px]"
+                  src="/LinkImage.png"
+                  alt="Link Icon"
+                />
+              </a>
+              <a
+                className="inline-block text-xl items-center justify-center  hover:bg-slate-300 rounded-2xl mr-[10px]"
+                href="https://github.com/brianhngo/TradeM2"
                 rel="noreferrer"
                 target="_blank">
                 <img
@@ -584,101 +601,111 @@ function Projects() {
                   alt="GitHub Icon"
                 />
               </a>
-              <h5 className="mr-auto mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                TradeM
-              </h5>
-              <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                TradeM is a versatile online platform that seamlessly combines
-                the best features of popular marketplaces like Facebook
-                Marketplace and Craigslist with the user-friendliness of Yelp.
-                This powerful platform empowers users to easily resell items
-                they no longer need while discovering great deals within their
-                local communities.
-              </p>
-              <ul className="list-disc ml-6 space-y-2">
-                <li className="mb-2">
-                  Designed and developed an intuitive and modern user interface
-                  for a local buying and selling platform, ensuring a
-                  user-friendly experience.
-                </li>
-                <li className="mb-2">
-                  Implemented advanced search and filtering features, enhancing
-                  the platform's usability and enabling users to quickly locate
-                  desired products.
-                </li>
-                <li className="mb-2">
-                  Created a secure messaging system with real-time
-                  notifications, enabling effective buyer-seller communication,
-                  negotiation, and transaction coordination while maintaining
-                  user privacy.
-                </li>
-                <li className="mb-2">
-                  Incorporated user verification features to establish trust and
-                  authenticity within the platform, leading to a secure and
-                  reliable marketplace.
-                </li>
-                <li className="mb-2">
-                  Designed and implemented the database schema using Firebase
-                  for various platform features, including the messaging system
-                  and database, ensuring efficient data storage and retrieval.
-                </li>
-                <li className="mb-2">
-                  Integrated a Leaflet map feature into the platform, allowing
-                  users to visualize and interact with geographical data,
-                  enhancing the overall user experience and making it easier to
-                  discover local deals, plan meetups, and locate items for sale.
-                </li>
-              </ul>
-              <div className="flex">
-                <li>
-                  <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
-                    React
-                  </a>
-                  <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
-                    Bootstrap
-                  </a>
-                  <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
-                    Leaflet
-                  </a>
-                  <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
-                    Javascript
-                  </a>
-                  <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
-                    HTML
-                  </a>
-                  <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
-                    CSS
-                  </a>
-                  <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
-                    Axios
-                  </a>
-                  <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
-                    Webpack
-                  </a>
-                  <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
-                    Node.js
-                  </a>
-                  <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
-                    Firebase
-                  </a>
-                </li>
-              </div>
             </div>
-          </a>
-        </li>
-        <li>
-          <a
-            href="#"
-            className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-            <img
-              className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
-              src="/docs/images/blog/image-4.jpg"
-              alt=""
-            />
-            <div className="relative p-4 leading-normal">
+          </div>
+
+          <p className="mb-3 font-normal text-[#AAA6C3]  px-[20px] mb-[10px]">
+            TradeM is a versatile online platform that seamlessly combines the
+            best features of popular marketplaces like Facebook Marketplace and
+            Craigslist with the user-friendliness of Yelp. This powerful
+            platform empowers users to easily resell items they no longer need
+            while discovering great deals within their local communities.
+          </p>
+
+          <ul className="list-disc ml-6 space-y-2 px-[22px] mx-[15px] my-[10px]">
+            <li>
+              Designed and developed an intuitive and modern user interface for
+              a local buying and selling platform, ensuring a user-friendly
+              experience.
+            </li>
+            <li>
+              Implemented advanced search and filtering features, enhancing the
+              platform's usability and enabling users to quickly locate desired
+              products.
+            </li>
+            <li>
+              Created a secure messaging system with real-time notifications,
+              enabling effective buyer-seller communication, negotiation, and
+              transaction coordination while maintaining user privacy.
+            </li>
+            <li>
+              Incorporated user verification features to establish trust and
+              authenticity within the platform, leading to a secure and reliable
+              marketplace.
+            </li>
+            <li>
+              Designed and implemented the database schema using Firebase for
+              various platform features, including the messaging system and
+              database, ensuring efficient data storage and retrieval.
+            </li>
+            <li>
+              Integrated a Leaflet map feature into the platform, allowing users
+              to visualize and interact with geographical data, enhancing the
+              overall user experience and making it easier to discover local
+              deals, plan meetups, and locate items for sale.
+            </li>
+          </ul>
+          <div className="flex flex-wrap px-[15px] py-[10px] gap-[10px]">
+            <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+              React
+            </a>
+            <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+              Bootstrap
+            </a>
+            <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+              Leaflet
+            </a>
+            <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+              Javascript
+            </a>
+            <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+              HTML
+            </a>
+            <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+              CSS
+            </a>
+            <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+              Axios
+            </a>
+            <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+              Webpack
+            </a>
+            <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+              Node.js
+            </a>
+            <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+              Firebase
+            </a>
+          </div>
+        </div>
+        <div className="flex flex-col justify-center bg-white rounded-lg shadow-md w-full m-6 overflow-hidden sm:w-52 py-40 px-24 m-[15px]">
+          <img
+            className="w-[80%] h-[100%] rounded-lg border  mx-auto my-[25px]"
+            src="/TradeM.png"
+            alt=""
+          />
+
+          <div className="flex justify-between items-center mx-auto">
+            <h5 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-black px-[20px] my-[10px]">
+              The Chip Corner
+            </h5>
+
+            <div className="flex gap-[15px] justify-center align-middle">
+              {/* Need to find a deploying website. Render Link broke */}
               <a
-                className="absolute top-0 right-0 text-xl flex items-center justify-center bg-slate-500 hover:bg-slate-300 rounded-2xl"
-                href="https://github.com/brianhngo"
+                href="https://tradem-6faae.web.app/"
+                title="new window icons"
+                className="">
+                {' '}
+                <img
+                  className="w-[38px] h-[38px]"
+                  src="/LinkImage.png"
+                  alt="Link Icon"
+                />
+              </a>
+              <a
+                className="inline-block text-xl items-center justify-center  hover:bg-slate-300 rounded-2xl mr-[10px]"
+                href="https://github.com/brianhngo/ChipCorner"
                 rel="noreferrer"
                 target="_blank">
                 <img
@@ -687,130 +714,117 @@ function Projects() {
                   alt="GitHub Icon"
                 />
               </a>
-              <h5 className="mr-auto mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                The Chip Corner
-              </h5>
-              <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                The Chip Corneris an e-commerce website that specializes in
-                selling a wide variety of chips, from classic potato chips to
-                exotic and unique flavors.
-              </p>
-              <ul className="list-disc ml-6 space-y-2">
-                <li className="mb-2">
-                  Explore a wide variety of chips from different brands,
-                  flavors, price ranges, and types, enhancing the user's ability
-                  to find their preferred products.
-                </li>
-                <li className="mb-2">
-                  Access comprehensive product details, such as images,
-                  descriptions, and pricing, ensuring users have the necessary
-                  information to make informed choices.
-                </li>
-                <li className="mb-2">
-                  Simplify the shopping experience with efficient cart
-                  management, leveraging local storage support to facilitate
-                  item selection and purchase.
-                </li>
-                <li className="mb-2">
-                  Prioritize security and user trust with Stripe-powered online
-                  payments, ensuring that transactions are worry-free and
-                  safeguarded.
-                </li>
-                <li className="mb-2">
-                  Implement user authentication and account management through
-                  JSON web tokens, enabling both users and administrators to log
-                  in securely and manage their profiles.
-                </li>
-                <li className="mb-2">
-                  Enhance user engagement by offering order history and delivery
-                  status tracking, providing transparency and convenience
-                  throughout the shopping process.
-                </li>
-              </ul>
-              <h5 className=""> Technology </h5>
-              <div className="flex">
-                <li>
-                  <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
-                    Javascript
-                  </a>
-                </li>
-                <li>
-                  <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
-                    React
-                  </a>
-                </li>
-                <li>
-                  <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
-                    Redux
-                  </a>
-                </li>
-                <li>
-                  <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
-                    HTML
-                  </a>
-                </li>
-                <li>
-                  <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
-                    CSS
-                  </a>
-                </li>
-                <li>
-                  <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
-                    Axios
-                  </a>
-                </li>
-                <li>
-                  <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
-                    Node.js
-                  </a>
-                </li>
-                <li>
-                  <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
-                    Stripe
-                  </a>
-                </li>
-                <li>
-                  <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
-                    Express.js
-                  </a>
-                </li>
-                <li>
-                  <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
-                    PostgreSQL
-                  </a>
-                </li>
-                <li>
-                  <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
-                    Sequelize
-                  </a>
-                </li>
-                <li>
-                  <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
-                    JSON Web Token
-                  </a>
-                </li>
-                <li>
-                  <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
-                    Webpack
-                  </a>
-                </li>
-              </div>
             </div>
-          </a>
-        </li>
-        <li>
-          <a
-            href="#"
-            className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-            <img
-              className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
-              src="/docs/images/blog/image-4.jpg"
-              alt=""
-            />
-            <div className="relative p-4 leading-normal">
+          </div>
+
+          <p className="mb-3 font-normal text-[#AAA6C3]  px-[20px] mb-[10px] text-center">
+            The Chip Corneris an e-commerce website that specializes in selling
+            a wide variety of chips, from classic potato chips to exotic and
+            unique flavors.
+          </p>
+
+          <ul className="list-disc ml-6 space-y-2 px-[22px] my-[10px] mx-[15px] text-center">
+            <li>
+              Explore a wide variety of chips from different brands, flavors,
+              price ranges, and types, enhancing the user's ability to find
+              their preferred products.
+            </li>
+            <li>
+              Access comprehensive product details, such as images,
+              descriptions, and pricing, ensuring users have the necessary
+              information to make informed choices.
+            </li>
+            <li>
+              Simplify the shopping experience with efficient cart management,
+              leveraging local storage support to facilitate item selection and
+              purchase.
+            </li>
+            <li>
+              Prioritize security and user trust with Stripe-powered online
+              payments, ensuring that transactions are worry-free and
+              safeguarded.
+            </li>
+            <li>
+              Implement user authentication and account management through JSON
+              web tokens, enabling both users and administrators to log in
+              securely and manage their profiles.
+            </li>
+            <li>
+              Enhance user engagement by offering order history and delivery
+              status tracking, providing transparency and convenience throughout
+              the shopping process.
+            </li>
+          </ul>
+          <div className="flex flex-wrap px-[15px] py-[10px] gap-[10px]">
+            <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+              React
+            </a>
+            <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+              Javascript
+            </a>
+            <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+              Redux
+            </a>
+            <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+              CSS
+            </a>
+            <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+              HTML
+            </a>
+            <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+              Stripe
+            </a>
+            <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+              Axios
+            </a>
+            <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+              Webpack
+            </a>
+            <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+              Node.js
+            </a>
+            <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+              Sequelize
+            </a>
+            <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+              Express
+            </a>
+            <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+              PosgreSQL
+            </a>
+            <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+              JSON Web Token
+            </a>
+          </div>
+        </div>
+
+        <div className="flex flex-col justify-center bg-white rounded-lg shadow-md w-full m-6 overflow-hidden sm:w-52 py-40 px-24 m-[15px]">
+          <img
+            className=" w-[80%] h-[100%] rounded-lg border  mx-auto my-[25px]"
+            src="/TradeM.png"
+            alt=""
+          />
+
+          <div className="flex justify-between items-center ">
+            <h5 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-black  px-[20px] my-[10px]">
+              Resume Portfolio
+            </h5>
+            {/* Need To CHange to Deployed Website */}
+            <div className="flex gap-[15px] justify-center align-middle">
               <a
-                className="absolute top-0 right-0 text-xl flex items-center justify-center bg-slate-500 hover:bg-slate-300 rounded-2xl"
-                href="https://github.com/brianhngo"
+                href="https://tradem-6faae.web.app/"
+                title="new window icons"
+                className="">
+                {' '}
+                <img
+                  className="w-[38px] h-[38px]"
+                  src="/LinkImage.png"
+                  alt="Link Icon"
+                />
+              </a>
+              <a
+                className="inline-block text-xl items-center justify-center  hover:bg-slate-300 rounded-2xl mr-[10px]"
+                href="https://github.com/brianhngo/ResumePortfolio"
                 rel="noreferrer"
                 target="_blank">
                 <img
@@ -819,43 +833,54 @@ function Projects() {
                   alt="GitHub Icon"
                 />
               </a>
-              <h5 className="mr-auto mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                Resume Portoflio
-              </h5>
-              <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                An updated collection of my experiences, projects, skills.
-              </p>
-              <ul className="list-disc ml-6 space-y-2">
-                <li className="mb-2">
-                  Created a dynamic and responsive web portfolio using React,
-                  Tailwind CSS, and Vite, delivering a modern and visually
-                  appealing showcase of my work, skills, and projects.
-                </li>
-              </ul>
-              <div className="flex">
-                <li>
-                  <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
-                    React
-                  </a>
-                  <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
-                    Javascript
-                  </a>
-                  <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
-                    HTML
-                  </a>
-                  <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
-                    CSS
-                  </a>
-                  <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
-                    Vite
-                  </a>
-                </li>
-              </div>
             </div>
-          </a>
-        </li>
-      </ul>
-    </section>
+          </div>
+
+          <p className="mb-3 font-normal text-[#AAA6C3]  px-[20px] mb-[10px]">
+            Developed a dynamic and responsive web portfolio using React,
+            delivering a modern and visually appealing showcase of my work,
+            skills, and projects.
+          </p>
+
+          <ul className="list-disc ml-6 space-y-2 px-[22px] mx-[15px] my-[10px]">
+            <li>
+              Developed a dynamic and responsive web portfolio using React,
+              delivering a modern and visually appealing showcase of my work,
+              skills, and projects.
+            </li>
+            <li>
+              Utilized Tailwind CSS to enhance the design and styling of the web
+              portfolio.
+            </li>
+            <li>
+              Developed a responsive portfolio website that can be used on
+              various screen sizes and devices
+            </li>
+            <li>
+              Utilized Vite.js to enhance the build procedure and boost
+              website's loading speed
+            </li>
+          </ul>
+          <div className="flex flex-wrap px-[15px] py-[10px] gap-[10px]">
+            <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
+              React
+            </a>
+            <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
+              Javascript
+            </a>
+            <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
+              HTML
+            </a>
+            <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
+              CSS
+            </a>
+            <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
+              Vite
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -872,8 +897,7 @@ function Timeline() {
           contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
           date="Apr 2023 - Aug 2023"
           iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-          // icon={<WorkIcon />}
-        >
+          icon={<Image1 />}>
           <h3 className="vertical-timeline-element-title ">
             Software Engineering & Web Development Bootcamp
           </h3>
@@ -918,10 +942,9 @@ function Timeline() {
           className="vertical-timeline-element--work"
           date="Feb 2022 - Jan 2023"
           iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-          // icon={<WorkIcon />}
-        >
+          icon={<Image2 />}>
           <h3 className="vertical-timeline-element-title">
-            Research Associate I, Technology Development
+            Associate R&D Engineer
           </h3>
           <h4 className="vertical-timeline-element-subtitle">
             Biocept <br /> San Diego, CA
@@ -957,8 +980,7 @@ function Timeline() {
           className="vertical-timeline-element--work"
           date="Mar 2021 - Feb 2022"
           iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-          // icon={<WorkIcon />}
-        >
+          icon={<Image2 />}>
           <h3 className="vertical-timeline-element-title">
             Research Associate I, Technology Development
           </h3>
@@ -1001,13 +1023,12 @@ function Timeline() {
           className="vertical-timeline-element--work"
           date="Mar 2019 - Aug 2019"
           iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-          // icon={<WorkIcon />}
-        >
+          icon={<Image3 />}>
           <h3 className="vertical-timeline-element-title">
-            Research Associate I, Technology Development
+            Manufacturing Intern
           </h3>
           <h4 className="vertical-timeline-element-subtitle">
-            Biocept <br />
+            Biofluidica <br /> San Diego, CA
           </h4>
           <h4 className="vertical-timeline-element-subtitle">San Diego, CA</h4>
           <p>
@@ -1041,14 +1062,13 @@ function Timeline() {
           className="vertical-timeline-element--education"
           date="Sept 2017 - June 2020"
           iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
-          // icon={<SchoolIcon />}
-        >
+          icon={<Image4 />}>
           <h3 className="vertical-timeline-element-title">
             Bachelor of Science in Bioengineering:Biotechnology
           </h3>
           <h4 className="vertical-timeline-element-subtitle">
             {' '}
-            University of California San Diego{' '}
+            University of California, San Diego{' '}
           </h4>
         </VerticalTimelineElement>
       </VerticalTimeline>
@@ -1056,6 +1076,65 @@ function Timeline() {
   );
 }
 
+// FSA Image
+function Image1() {
+  return (
+    <div className="w-32 h-32 rounded-full overflow-hidden flex items-center justify-center">
+      <img
+        src="/fsa.png"
+        alt="My Image"
+        className="w-full h-full object-cover"
+      />
+    </div>
+  );
+}
+
+// Biocept Image
+function Image2() {
+  return (
+    <div className="w-32 h-32 rounded-full overflow-hidden flex items-center justify-center">
+      <img
+        src="/BioceptLogo.png"
+        alt="My Image"
+        className="w-full h-full object-cover"
+      />
+    </div>
+  );
+}
+
+// Biofluidica Image
+function Image3() {
+  return (
+    <div className="w-32 h-32 rounded-full overflow-hidden flex items-center justify-center">
+      <img
+        src="/Biofluidica.png"
+        alt="My Image"
+        className="w-full h-full object-cover"
+      />
+    </div>
+  );
+}
+
+// School Image
+function Image4() {
+  return (
+    <div className="w-32 h-32 rounded-full overflow-hidden flex items-center justify-center">
+      <img
+        src="/UCSD.png"
+        alt="My Image"
+        className="w-full h-full object-cover"
+      />
+    </div>
+  );
+}
+
 // Lets Connect Section
+function LetsConnect() {
+  return (
+    <section>
+      <h1> Lets Connect</h1>
+    </section>
+  );
+}
 
 export default App;
