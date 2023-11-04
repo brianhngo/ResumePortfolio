@@ -179,6 +179,7 @@ function Profile2() {
               href="https://github.com/brianhngo/"
               rel="noreferrer"
               target="_blank"
+              name="logo-github"
               style={{ fontSize: '48px' }}></ion-icon>
             <ion-icon
               href="https://www.linkedin.com/in/brianhngo/"
