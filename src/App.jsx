@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -8,6 +8,9 @@ import './App.css';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-scroll';
+
+import { useInView } from 'react-intersection-observer';
+import { motion, useAnimation } from 'framer-motion';
 
 function App() {
   return (
@@ -164,7 +167,7 @@ function Profile2() {
           </p>
           <div className="flex justify-center gap-4 space-x-4">
             <a
-              href="../../public/Resume.pdf"
+              href="/Resume.pdf"
               target="_blank"
               className="font-semibold transition-all duration-300 flex items-center p-4 w-32 rounded-full border-2 border-gray-300 hover:border-white hover-bg-white hover-text-gray-800 cursor-pointer">
               <ion-icon
@@ -195,35 +198,86 @@ function Profile2() {
   );
 }
 
-function AboutMe() {
+const AboutMe = () => {
+  const boxVariant = {
+    visible: {
+      opacity: 1,
+      scale: 1,
+      x: 0,
+      transition: { duration: 0.6, delay: 0.2 },
+    },
+    hidden: { opacity: 0, scale: 1, x: -200 },
+  };
+
+  const control = useAnimation();
+  const [ref, inView] = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      control.start('visible');
+    } else {
+      control.start('hidden');
+    }
+  }, [control, inView]);
+
   return (
     <section id="about-me" className="relative w-min-screen">
-      <p className="mt-4 mb-4  md:text-[1rem] text-[1rem] font-normal text-neutral-950 text-center">
+      <motion.p
+        className="mt-4 mb-4 md:text-[1rem] text-[1rem] font-normal text-neutral-950 text-center"
+        ref={ref}
+        initial="hidden"
+        animate={control}
+        variants={boxVariant}>
         Get To Know More
-      </p>
-      <h1 className="mt-4 mb-4 text-center md:text-[3.75rem] text-[2.5rem] font-bold leading-none tracking-tight text-neutral-950">
+      </motion.p>
+      <motion.h1
+        className="mt-4 mb-4 text-center md:text-[3.75rem] text-[2.5rem] font-bold leading-none tracking-tight text-neutral-950"
+        ref={ref}
+        initial="hidden"
+        animate={control}
+        variants={boxVariant}>
         About Me
-      </h1>
+      </motion.h1>
       <div className="h-[80%] space-y-16">
         <div className="justify-center flex flex-col">
-          <div className=" w-[80vw]  pt-[10px] pb-[10px] gap-[15px]  flex md:flex-row flex-col justify-center mx-auto">
-            <div className="p-6 flex-1 bg-white rounded-full border-2 border-gray-400 text-center">
+          <motion.div
+            className="w-[80vw] pt-[10px] pb-[10px] gap-[15px] flex md:flex-row flex-col justify-center mx-auto"
+            ref={ref}
+            initial="hidden"
+            animate={control}
+            variants={boxVariant}>
+            <motion.div
+              className="p-6 flex-1 bg-white rounded-full border-2 border-gray-400 text-center"
+              ref={ref}
+              initial="hidden"
+              animate={control}
+              variants={boxVariant}>
               <img />
               <h3>Experience</h3>
               <p>0-1 Years</p>
-            </div>
-            <div className="p-6 flex-1 bg-white rounded-full border-2 border-gray-400 text-center">
+            </motion.div>
+            <motion.div
+              className="p-6 flex-1 bg-white rounded-full border-2 border-gray-400 text-center"
+              ref={ref}
+              initial="hidden"
+              animate={control}
+              variants={boxVariant}>
               <img />
               <h3>Education</h3>
               <p>
                 Full Stack Academy Web Development & Software Engineering
                 Certificate
                 <br />
-                B.S in Bioengineering:Biotechnology
+                B.S in Bioengineering: Biotechnology
               </p>
-            </div>
-          </div>
-          <div className="">
+            </motion.div>
+          </motion.div>
+          <motion.div
+            className="text-center"
+            ref={ref}
+            initial="hidden"
+            animate={control}
+            variants={boxVariant}>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quis
               reprehenderit et laborum, rem, dolore eum quod voluptate
@@ -232,772 +286,824 @@ function AboutMe() {
               Eligendi illum libero dolorum cum laboriosam corrupti quidem,
               reiciendis ea magnam? Nulla, impedit fuga!
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
   );
-}
+};
 
 // Skills Section
 //
 function Skills() {
+  const containerVariant = {
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { delay: 0.2 },
+    },
+    hidden: { opacity: 0, scale: 0.9 },
+  };
+
+  const control = useAnimation();
+  const [ref, inView] = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      control.start('visible');
+    } else {
+      control.start('hidden');
+    }
+  }, [control, inView]);
   return (
     <section id="skills">
-      <p className="mt-4 mb-4  md:text-[1rem] text-[1rem] font-normal text-neutral-950 text-center">
-        What I can Do
-      </p>
-      <h1 className="mt-4 mb-4 text-center md:text-[3.75rem] text-[2.5rem] font-bold leading-none tracking-tight text-neutral-950">
-        {' '}
-        Skills
-      </h1>
-      <div className="grid grid-cols-auto">
-        <div className="p-6 flex-1 bg-white rounded-xl border-2 border-gray-400 text-center m-[10%]">
-          <h1 className="text-center text-[42px] underline">
-            {' '}
-            Programming Languages{' '}
-          </h1>
-          <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 justify-items-center items-center">
-            <a
-              className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
-              href="https://developer.mozilla.org/en/JavaScript"
-              rel="noreferrer"
-              target="_blank">
-              <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
-                <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
-                  <img
-                    className="w-[70px] h-[70px]"
-                    src="/javascript.svg"
-                    alt="Javascript Icon"
-                  />
-                  <h3 className="text-center text-white">Javascript</h3>
-                </div>
-              </li>
-            </a>
-            <a
-              className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
-              href="https://www.python.org/"
-              rel="noreferrer"
-              target="_blank">
-              <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
-                <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
-                  <img
-                    className="w-[70px] h-[70px]"
-                    src="/python.svg"
-                    alt="Python Icon"
-                  />
-                  <h3 className="text-center text-white">Python</h3>
-                </div>
-              </li>
-            </a>
+      <motion.div
+        ref={ref}
+        variants={containerVariant}
+        initial="hidden"
+        animate={control}>
+        <p className="mt-4 mb-4  md:text-[1rem] text-[1rem] font-normal text-neutral-950 text-center">
+          What I can Do
+        </p>
+        <h1 className="mt-4 mb-4 text-center md:text-[3.75rem] text-[2.5rem] font-bold leading-none tracking-tight text-neutral-950">
+          {' '}
+          Skills
+        </h1>
+        <div className="grid grid-cols-auto">
+          <div className="p-6 flex-1 bg-white rounded-xl border-2 border-gray-400 text-center m-[10%]">
+            <h1 className="text-center text-[42px] underline">
+              {' '}
+              Programming Languages{' '}
+            </h1>
+            <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 justify-items-center items-center">
+              <a
+                className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
+                href="https://developer.mozilla.org/en/JavaScript"
+                rel="noreferrer"
+                target="_blank">
+                <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
+                  <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
+                    <img
+                      className="w-[70px] h-[70px]"
+                      src="/javascript.svg"
+                      alt="Javascript Icon"
+                    />
+                    <h3 className="text-center text-white">Javascript</h3>
+                  </div>
+                </li>
+              </a>
+              <a
+                className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
+                href="https://www.python.org/"
+                rel="noreferrer"
+                target="_blank">
+                <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
+                  <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
+                    <img
+                      className="w-[70px] h-[70px]"
+                      src="/python.svg"
+                      alt="Python Icon"
+                    />
+                    <h3 className="text-center text-white">Python</h3>
+                  </div>
+                </li>
+              </a>
 
-            <a
-              className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
-              href="https://www.mathworks.com/products/matlab.html"
-              rel="noreferrer"
-              target="_blank">
-              <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
-                <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
-                  <img
-                    className="w-[70px] h-[70px]"
-                    src="/matlab.svg"
-                    alt="Matlab Icon"
-                  />
-                  <h3 className="text-center text-white">Matlab</h3>
-                </div>
-              </li>
-            </a>
-            <a
-              className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
-              href="https://www.arduino.cc/"
-              rel="noreferrer"
-              target="_blank">
-              <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
-                <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
-                  <img
-                    className="w-[70px] h-[70px]"
-                    src="/arduino.svg"
-                    alt="Arduino Icon"
-                  />
-                  <h3 className="text-center text-white">Arduino</h3>
-                </div>
-              </li>
-            </a>
-          </ul>
+              <a
+                className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
+                href="https://www.mathworks.com/products/matlab.html"
+                rel="noreferrer"
+                target="_blank">
+                <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
+                  <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
+                    <img
+                      className="w-[70px] h-[70px]"
+                      src="/matlab.svg"
+                      alt="Matlab Icon"
+                    />
+                    <h3 className="text-center text-white">Matlab</h3>
+                  </div>
+                </li>
+              </a>
+              <a
+                className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
+                href="https://www.arduino.cc/"
+                rel="noreferrer"
+                target="_blank">
+                <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
+                  <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
+                    <img
+                      className="w-[70px] h-[70px]"
+                      src="/arduino.svg"
+                      alt="Arduino Icon"
+                    />
+                    <h3 className="text-center text-white">Arduino</h3>
+                  </div>
+                </li>
+              </a>
+            </ul>
+          </div>
+          <div className="p-6 flex-1 bg-white rounded-xl border-2 border-gray-400 text-center m-[10%] ">
+            <h1 className="text-center text-[42px] underline">
+              {' '}
+              Frontend Technologies
+            </h1>
+            <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 justify-items-center items-center ">
+              <a
+                className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
+                href="https://react.dev/"
+                rel="noreferrer"
+                target="_blank">
+                <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
+                  <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
+                    <img
+                      className="w-[70px] h-[70px]"
+                      src="/react.svg"
+                      alt="React Icon"
+                    />
+                    <h3 className="text-center text-white">React</h3>
+                  </div>
+                </li>
+              </a>
+
+              <a
+                className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
+                href="https://html.spec.whatwg.org/multipage/"
+                rel="noreferrer"
+                target="_blank">
+                <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
+                  <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
+                    <img
+                      className="w-[70px] h-[70px]"
+                      src="/html5.svg"
+                      alt="HTML Icon"
+                    />
+                    <h3 className="text-center text-white">HTML</h3>
+                  </div>
+                </li>
+              </a>
+              <a
+                className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
+                href="https://www.w3.org/Style/CSS/Overview.en.html"
+                rel="noreferrer"
+                target="_blank">
+                <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
+                  <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
+                    <img
+                      className="w-[70px] h-[70px]"
+                      src="/css3.svg"
+                      alt="CSS Icon"
+                    />
+                    <h3 className="text-center text-white">CSS</h3>
+                  </div>
+                </li>
+              </a>
+
+              <a
+                className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
+                href="https://tailwindcss.com/"
+                rel="noreferrer"
+                target="_blank">
+                <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
+                  <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
+                    <img
+                      className="w-[70px] h-[70px]"
+                      src="/tailwindcss.svg"
+                      alt="Tailwind Icon"
+                    />
+                    <h3 className="text-center text-white">Tailwind</h3>
+                  </div>
+                </li>
+              </a>
+
+              <a
+                className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
+                href="https://getbootstrap.com/"
+                rel="noreferrer"
+                target="_blank">
+                <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
+                  <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
+                    <img
+                      className="w-[70px] h-[70px]"
+                      src="/bootstrap.svg"
+                      alt="Bootstrap Icon"
+                    />
+                    <h3 className="text-center text-white">Bootstrap</h3>
+                  </div>
+                </li>
+              </a>
+            </ul>
+          </div>
+          <div className="p-6 flex-1 bg-white rounded-xl border-2 border-gray-400 text-center m-[10%]">
+            <h1 className="text-center text-[42px] underline">
+              {' '}
+              Backend Technologies{' '}
+            </h1>
+            <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 justify-items-center items-center">
+              <a
+                className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
+                href="https://expressjs.com/"
+                rel="noreferrer"
+                target="_blank">
+                <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
+                  <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
+                    <img
+                      className="w-[70px] h-[70px]"
+                      src="/express.svg"
+                      alt="Express Icon"
+                    />
+                    <h3 className="text-center text-white">Express.js</h3>
+                  </div>
+                </li>
+              </a>
+              <a
+                className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
+                href="https://nodejs.org/en"
+                rel="noreferrer"
+                target="_blank">
+                <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
+                  <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
+                    <img
+                      className="w-[70px] h-[70px]"
+                      src="/nodejs.svg"
+                      alt="NodeJs Icon"
+                    />
+                    <h3 className="text-center text-white">Node.js</h3>
+                  </div>
+                </li>
+              </a>
+            </ul>
+          </div>
+          <div className="p-6 flex-1 bg-white rounded-xl border-2 border-gray-400 text-center m-[10%]">
+            <h1 className="text-center text-[42px] underline"> Databases </h1>
+            <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 justify-items-center items-center">
+              <a
+                className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
+                href="https://www.postgresql.org/"
+                rel="noreferrer"
+                target="_blank">
+                <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
+                  <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
+                    <img
+                      className="w-[70px] h-[70px]"
+                      src="/postgresql.svg"
+                      alt="Postgres Icon"
+                    />
+                    <h3 className="text-center text-white">PostgreSQL</h3>
+                  </div>
+                </li>
+              </a>
+              <a
+                className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
+                href="https://firebase.google.com/"
+                rel="noreferrer"
+                target="_blank">
+                <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
+                  <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
+                    <img
+                      className="w-[70px] h-[70px]"
+                      src="/firebase.svg"
+                      alt="Firebase Icon"
+                    />
+                    <h3 className="text-center text-white">Firebase</h3>
+                  </div>
+                </li>
+              </a>
+            </ul>
+          </div>
+          <div className="p-6 flex-1 bg-white rounded-xl border-2 border-gray-400 text-center m-[10%]">
+            <h1 className="text-center text-[42px] underline"> Tools </h1>
+            <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 justify-items-center items-center">
+              <a
+                className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
+                href="https://sequelize.org/"
+                rel="noreferrer"
+                target="_blank">
+                <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
+                  <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
+                    <img
+                      className="w-[70px] h-[70px]"
+                      src="/sequelize.svg"
+                      alt="Sequelize Icon"
+                    />
+                    <h3 className="text-center text-white">Sequelize</h3>
+                  </div>
+                </li>
+              </a>
+              <a
+                className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
+                href="https://redux.js.org/"
+                rel="noreferrer"
+                target="_blank">
+                <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
+                  <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
+                    <img
+                      className="w-[70px] h-[70px]"
+                      src="/redux.svg"
+                      alt="Redux Icon"
+                    />
+                    <h3 className="text-center text-white">Redux</h3>
+                  </div>
+                </li>
+              </a>
+              <a
+                className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
+                href="https://git-scm.com/"
+                rel="noreferrer"
+                target="_blank">
+                <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
+                  <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
+                    <img
+                      className="w-[70px] h-[70px]"
+                      src="/git.svg"
+                      alt="Git Icon"
+                    />
+                    <h3 className="text-center text-white">Git</h3>
+                  </div>
+                </li>
+              </a>
+
+              <a
+                className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
+                href="https://jasmine.github.io/index.html"
+                rel="noreferrer"
+                target="_blank">
+                <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
+                  <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
+                    <img
+                      className="w-[70px] h-[70px]"
+                      src="/jasmine.svg"
+                      alt="Jasmine Icon"
+                    />
+                    <h3 className="text-center text-white">Jasmine</h3>
+                  </div>
+                </li>
+              </a>
+
+              <a
+                className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
+                href="https://mochajs.org/"
+                rel="noreferrer"
+                target="_blank">
+                <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
+                  <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
+                    <img
+                      className="w-[70px] h-[70px]"
+                      src="/mocha.svg"
+                      alt="Mocha Icon"
+                    />
+                    <h3 className="text-center text-white">Mocha</h3>
+                  </div>
+                </li>
+              </a>
+
+              <a
+                className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
+                href="https://webpack.js.org/"
+                rel="noreferrer"
+                target="_blank">
+                <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
+                  <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
+                    <img
+                      className="w-[70px] h-[70px]"
+                      src="/webpack.svg"
+                      alt="Webpack Icon"
+                    />
+                    <h3 className="text-center text-white">Webpack</h3>
+                  </div>
+                </li>
+              </a>
+
+              <a
+                className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
+                href="https://www.npmjs.com/"
+                rel="noreferrer"
+                target="_blank">
+                <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
+                  <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
+                    <img
+                      className="w-[70px] h-[70px]"
+                      src="/npm.svg"
+                      alt="NPM Icon"
+                    />
+                    <h3 className="text-center text-white">NPM </h3>
+                  </div>
+                </li>
+              </a>
+
+              <a
+                className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
+                href="https://vitejs.dev/"
+                rel="noreferrer"
+                target="_blank">
+                <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
+                  <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
+                    <img
+                      className="w-[70px] h-[70px]"
+                      src="/vite.svg"
+                      alt="vite Icon"
+                    />
+                    <h3 className="text-center text-white"> Vite </h3>
+                  </div>
+                </li>
+              </a>
+
+              <a
+                className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
+                href="https://axios-http.com/"
+                rel="noreferrer"
+                target="_blank">
+                <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
+                  <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
+                    <img
+                      className="w-[70px] h-[70px]"
+                      src="/axios.svg"
+                      alt="Axios Icon"
+                    />
+                    <h3 className="text-center text-white"> Axios </h3>
+                  </div>
+                </li>
+              </a>
+
+              <a
+                className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
+                href="https://leafletjs.com/"
+                rel="noreferrer"
+                target="_blank">
+                <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
+                  <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
+                    <img
+                      className="w-[70px] h-[70px]"
+                      src="/leaflet.svg"
+                      alt="Leaflet Icon"
+                    />
+                    <h3 className="text-center text-white"> Leaflet </h3>
+                  </div>
+                </li>
+              </a>
+            </ul>
+          </div>
         </div>
-        <div className="p-6 flex-1 bg-white rounded-xl border-2 border-gray-400 text-center m-[10%] ">
-          <h1 className="text-center text-[42px] underline">
-            {' '}
-            Frontend Technologies
-          </h1>
-          <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 justify-items-center items-center ">
-            <a
-              className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
-              href="https://react.dev/"
-              rel="noreferrer"
-              target="_blank">
-              <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
-                <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
-                  <img
-                    className="w-[70px] h-[70px]"
-                    src="/react.svg"
-                    alt="React Icon"
-                  />
-                  <h3 className="text-center text-white">React</h3>
-                </div>
-              </li>
-            </a>
-
-            <a
-              className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
-              href="https://html.spec.whatwg.org/multipage/"
-              rel="noreferrer"
-              target="_blank">
-              <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
-                <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
-                  <img
-                    className="w-[70px] h-[70px]"
-                    src="/html5.svg"
-                    alt="HTML Icon"
-                  />
-                  <h3 className="text-center text-white">HTML</h3>
-                </div>
-              </li>
-            </a>
-            <a
-              className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
-              href="https://www.w3.org/Style/CSS/Overview.en.html"
-              rel="noreferrer"
-              target="_blank">
-              <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
-                <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
-                  <img
-                    className="w-[70px] h-[70px]"
-                    src="/css3.svg"
-                    alt="CSS Icon"
-                  />
-                  <h3 className="text-center text-white">CSS</h3>
-                </div>
-              </li>
-            </a>
-
-            <a
-              className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
-              href="https://tailwindcss.com/"
-              rel="noreferrer"
-              target="_blank">
-              <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
-                <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
-                  <img
-                    className="w-[70px] h-[70px]"
-                    src="/tailwindcss.svg"
-                    alt="Tailwind Icon"
-                  />
-                  <h3 className="text-center text-white">Tailwind</h3>
-                </div>
-              </li>
-            </a>
-
-            <a
-              className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
-              href="https://getbootstrap.com/"
-              rel="noreferrer"
-              target="_blank">
-              <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
-                <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
-                  <img
-                    className="w-[70px] h-[70px]"
-                    src="/bootstrap.svg"
-                    alt="Bootstrap Icon"
-                  />
-                  <h3 className="text-center text-white">Tailwind</h3>
-                </div>
-              </li>
-            </a>
-          </ul>
-        </div>
-        <div className="p-6 flex-1 bg-white rounded-xl border-2 border-gray-400 text-center m-[10%]">
-          <h1 className="text-center text-[42px] underline">
-            {' '}
-            Backend Technologies{' '}
-          </h1>
-          <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 justify-items-center items-center">
-            <a
-              className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
-              href="https://expressjs.com/"
-              rel="noreferrer"
-              target="_blank">
-              <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
-                <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
-                  <img
-                    className="w-[70px] h-[70px]"
-                    src="/express.svg"
-                    alt="Express Icon"
-                  />
-                  <h3 className="text-center text-white">Express.js</h3>
-                </div>
-              </li>
-            </a>
-            <a
-              className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
-              href="https://nodejs.org/en"
-              rel="noreferrer"
-              target="_blank">
-              <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
-                <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
-                  <img
-                    className="w-[70px] h-[70px]"
-                    src="/nodejs.svg"
-                    alt="NodeJs Icon"
-                  />
-                  <h3 className="text-center text-white">Node.js</h3>
-                </div>
-              </li>
-            </a>
-          </ul>
-        </div>
-        <div className="p-6 flex-1 bg-white rounded-xl border-2 border-gray-400 text-center m-[10%]">
-          <h1 className="text-center text-[42px] underline"> Databases </h1>
-          <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 justify-items-center items-center">
-            <a
-              className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
-              href="https://www.postgresql.org/"
-              rel="noreferrer"
-              target="_blank">
-              <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
-                <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
-                  <img
-                    className="w-[70px] h-[70px]"
-                    src="/postgresql.svg"
-                    alt="Postgres Icon"
-                  />
-                  <h3 className="text-center text-white">PostgreSQL</h3>
-                </div>
-              </li>
-            </a>
-            <a
-              className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
-              href="https://firebase.google.com/"
-              rel="noreferrer"
-              target="_blank">
-              <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
-                <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
-                  <img
-                    className="w-[70px] h-[70px]"
-                    src="/firebase.svg"
-                    alt="Firebase Icon"
-                  />
-                  <h3 className="text-center text-white">Firebase</h3>
-                </div>
-              </li>
-            </a>
-          </ul>
-        </div>
-        <div className="p-6 flex-1 bg-white rounded-xl border-2 border-gray-400 text-center m-[10%]">
-          <h1 className="text-center text-[42px] underline"> Tools </h1>
-          <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 justify-items-center items-center">
-            <a
-              className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
-              href="https://sequelize.org/"
-              rel="noreferrer"
-              target="_blank">
-              <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
-                <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
-                  <img
-                    className="w-[70px] h-[70px]"
-                    src="/sequelize.svg"
-                    alt="Sequelize Icon"
-                  />
-                  <h3 className="text-center text-white">Sequelize</h3>
-                </div>
-              </li>
-            </a>
-            <a
-              className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
-              href="https://redux.js.org/"
-              rel="noreferrer"
-              target="_blank">
-              <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
-                <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
-                  <img
-                    className="w-[70px] h-[70px]"
-                    src="/redux.svg"
-                    alt="Redux Icon"
-                  />
-                  <h3 className="text-center text-white">Redux</h3>
-                </div>
-              </li>
-            </a>
-            <a
-              className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
-              href="https://git-scm.com/"
-              rel="noreferrer"
-              target="_blank">
-              <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
-                <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
-                  <img
-                    className="w-[70px] h-[70px]"
-                    src="/git.svg"
-                    alt="Git Icon"
-                  />
-                  <h3 className="text-center text-white">Git</h3>
-                </div>
-              </li>
-            </a>
-
-            <a
-              className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
-              href="https://jasmine.github.io/index.html"
-              rel="noreferrer"
-              target="_blank">
-              <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
-                <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
-                  <img
-                    className="w-[70px] h-[70px]"
-                    src="/jasmine.svg"
-                    alt="Jasmine Icon"
-                  />
-                  <h3 className="text-center text-white">Jasmine</h3>
-                </div>
-              </li>
-            </a>
-
-            <a
-              className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
-              href="https://mochajs.org/"
-              rel="noreferrer"
-              target="_blank">
-              <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
-                <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
-                  <img
-                    className="w-[70px] h-[70px]"
-                    src="/mocha.svg"
-                    alt="Mocha Icon"
-                  />
-                  <h3 className="text-center text-white">Mocha</h3>
-                </div>
-              </li>
-            </a>
-
-            <a
-              className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
-              href="https://webpack.js.org/"
-              rel="noreferrer"
-              target="_blank">
-              <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
-                <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
-                  <img
-                    className="w-[70px] h-[70px]"
-                    src="/webpack.svg"
-                    alt="Webpack Icon"
-                  />
-                  <h3 className="text-center text-white">Webpack</h3>
-                </div>
-              </li>
-            </a>
-
-            <a
-              className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
-              href="https://www.npmjs.com/"
-              rel="noreferrer"
-              target="_blank">
-              <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
-                <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
-                  <img
-                    className="w-[70px] h-[70px]"
-                    src="/npm.svg"
-                    alt="NPM Icon"
-                  />
-                  <h3 className="text-center text-white">NPM </h3>
-                </div>
-              </li>
-            </a>
-
-            <a
-              className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
-              href="https://vitejs.dev/"
-              rel="noreferrer"
-              target="_blank">
-              <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
-                <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
-                  <img
-                    className="w-[70px] h-[70px]"
-                    src="/vite.svg"
-                    alt="vite Icon"
-                  />
-                  <h3 className="text-center text-white"> Vite </h3>
-                </div>
-              </li>
-            </a>
-
-            <a
-              className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
-              href="https://axios-http.com/"
-              rel="noreferrer"
-              target="_blank">
-              <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
-                <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
-                  <img
-                    className="w-[70px] h-[70px]"
-                    src="/axios.svg"
-                    alt="Axios Icon"
-                  />
-                  <h3 className="text-center text-white"> Axios </h3>
-                </div>
-              </li>
-            </a>
-
-            <a
-              className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
-              href="https://leafletjs.com/"
-              rel="noreferrer"
-              target="_blank">
-              <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
-                <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
-                  <img
-                    className="w-[70px] h-[70px]"
-                    src="/leaflet.svg"
-                    alt="Leaflet Icon"
-                  />
-                  <h3 className="text-center text-white"> Leaflet </h3>
-                </div>
-              </li>
-            </a>
-          </ul>
-        </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
 
 function Projects2() {
+  const containerVariant = {
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { delay: 0.2 },
+    },
+    hidden: { opacity: 0, scale: 0.9 },
+  };
+
+  const control = useAnimation();
+  const [ref, inView] = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      control.start('visible');
+    } else {
+      control.start('hidden');
+    }
+  }, [control, inView]);
   return (
-    <div id="projects" className="w-full  p-6 items-center justify-center">
-      <p className="mt-4 mb-4  md:text-[1rem] text-[1rem] font-normal text-neutral-950 text-center">
-        What I can Do
-      </p>
-      <h1 className="mt-4 mb-4 text-center md:text-[3.75rem] text-[2.5rem] font-bold leading-none tracking-tight text-neutral-950">
-        {' '}
-        Projects
-      </h1>
-      <div className="flex items-center justify-center">
-        <div className="grid lg:grid-cols-2 grid-cols-1 lg:w-[90%] w-[80%] gap-[30px]">
-          <div className="flex flex-col justify-center bg-white rounded-lg shadow-md w-full overflow-hidden lg:m-[15px]">
-            <img
-              className=" w-[80%] h-[100%]  rounded-lg border  mx-auto my-[25px] "
-              src="/TradeM.png"
-              alt=""
-            />
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={control}
+      variants={containerVariant}>
+      <div id="projects" className="w-full  p-6 items-center justify-center">
+        <p className="mt-4 mb-4  md:text-[1rem] text-[1rem] font-normal text-neutral-950 text-center">
+          What I can Do
+        </p>
+        <h1 className="mt-4 mb-4 text-center md:text-[3.75rem] text-[2.5rem] font-bold leading-none tracking-tight text-neutral-950">
+          {' '}
+          Projects
+        </h1>
+        <div className="flex items-center justify-center">
+          <div className="grid lg:grid-cols-2 grid-cols-1 lg:w-[90%] w-[80%] gap-[30px]">
+            <div className="flex flex-col justify-center bg-white rounded-lg shadow-md w-full overflow-hidden lg:m-[15px]">
+              <img
+                className=" w-[80%] h-[100%]  rounded-lg border  mx-auto my-[25px] "
+                src="/TradeM.png"
+                alt=""
+              />
 
-            <div className="flex justify-between items-center mx-auto">
-              <h5 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-black px-[20px] my-[10px] ">
-                TradeM
-              </h5>
+              <div className="flex justify-between items-center mx-auto">
+                <h5 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-black px-[20px] my-[10px] ">
+                  TradeM
+                </h5>
 
-              <div className="flex gap-[15px] justify-center align-middle">
-                <a
-                  href="https://tradem-6faae.web.app/"
-                  title="new window icons"
-                  className="">
-                  {' '}
-                  <img
-                    className="w-[38px] h-[38px]"
-                    src="/LinkImage.png"
-                    alt="Link Icon"
-                  />
+                <div className="flex gap-[15px] justify-center align-middle">
+                  <a
+                    href="https://tradem-6faae.web.app/"
+                    title="new window icons"
+                    className="">
+                    {' '}
+                    <img
+                      className="w-[38px] h-[38px]"
+                      src="/LinkImage.png"
+                      alt="Link Icon"
+                    />
+                  </a>
+                  <a
+                    className="inline-block text-xl items-center justify-center  hover:bg-slate-300 rounded-2xl mr-[10px]"
+                    href="https://github.com/brianhngo/TradeM2"
+                    rel="noreferrer"
+                    target="_blank">
+                    <img
+                      className="w-[40px] h-[40px]"
+                      src="/github.svg"
+                      alt="GitHub Icon"
+                    />
+                  </a>
+                </div>
+              </div>
+
+              <p className="mb-3 font-normal text-[#AAA6C3]  px-[20px] mb-[10px] text-center">
+                TradeM is a versatile online platform that seamlessly combines
+                the best features of popular marketplaces like Facebook
+                Marketplace and Craigslist with the user-friendliness of Yelp.
+                This powerful platform empowers users to easily resell items
+                they no longer need while discovering great deals within their
+                local communities.
+              </p>
+
+              <ul className="list-disc ml-6 space-y-2 px-[22px] mx-[15px] my-[10px] text-center">
+                <li>
+                  Designed and developed an intuitive and modern user interface
+                  for a local buying and selling platform, ensuring a
+                  user-friendly experience.
+                </li>
+                <li>
+                  Implemented advanced search and filtering features, enhancing
+                  the platform's usability and enabling users to quickly locate
+                  desired products.
+                </li>
+                <li>
+                  Created a secure messaging system with real-time
+                  notifications, enabling effective buyer-seller communication,
+                  negotiation, and transaction coordination while maintaining
+                  user privacy.
+                </li>
+                <li>
+                  Incorporated user verification features to establish trust and
+                  authenticity within the platform, leading to a secure and
+                  reliable marketplace.
+                </li>
+                <li>
+                  Designed and implemented the database schema using Firebase
+                  for various platform features, including the messaging system
+                  and database, ensuring efficient data storage and retrieval.
+                </li>
+                <li>
+                  Integrated a Leaflet map feature into the platform, allowing
+                  users to visualize and interact with geographical data,
+                  enhancing the overall user experience and making it easier to
+                  discover local deals, plan meetups, and locate items for sale.
+                </li>
+              </ul>
+              <div className="flex flex-wrap px-[15px] py-[10px] gap-[10px]">
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  React
                 </a>
-                <a
-                  className="inline-block text-xl items-center justify-center  hover:bg-slate-300 rounded-2xl mr-[10px]"
-                  href="https://github.com/brianhngo/TradeM2"
-                  rel="noreferrer"
-                  target="_blank">
-                  <img
-                    className="w-[40px] h-[40px]"
-                    src="/github.svg"
-                    alt="GitHub Icon"
-                  />
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Bootstrap
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Leaflet
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Javascript
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  HTML
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  CSS
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Axios
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Webpack
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Node.js
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Firebase
+                </a>
+              </div>
+            </div>
+            <div className="flex flex-col justify-center bg-white rounded-lg shadow-md w-full overflow-hidden lg:m-[15px]">
+              <img
+                className="w-[80%] h-[100%] rounded-lg border  mx-auto my-[25px]"
+                src="/ChipCorner.png"
+                alt=""
+              />
+
+              <div className="flex justify-between items-center mx-auto">
+                <h5 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-black px-[20px] my-[10px]">
+                  The Chip Corner
+                </h5>
+
+                <div className="flex gap-[15px] justify-center align-middle">
+                  {/* Need to find a deploying website. Render Link broke */}
+                  <a
+                    href="https://tradem-6faae.web.app/"
+                    title="new window icons"
+                    className="">
+                    {' '}
+                    <img
+                      className="w-[38px] h-[38px]"
+                      src="/LinkImage.png"
+                      alt="Link Icon"
+                    />
+                  </a>
+                  <a
+                    className="inline-block text-xl items-center justify-center  hover:bg-slate-300 rounded-2xl mr-[10px]"
+                    href="https://github.com/brianhngo/ChipCorner"
+                    rel="noreferrer"
+                    target="_blank">
+                    <img
+                      className="w-[40px] h-[40px]"
+                      src="/github.svg"
+                      alt="GitHub Icon"
+                    />
+                  </a>
+                </div>
+              </div>
+
+              <p className="mb-3 font-normal text-[#AAA6C3]  px-[20px] mb-[10px] text-center">
+                The Chip Corneris an e-commerce website that specializes in
+                selling a wide variety of chips, from classic potato chips to
+                exotic and unique flavors.
+              </p>
+
+              <ul className="list-disc ml-6 space-y-2 px-[22px] my-[10px] mx-[15px] text-center">
+                <li>
+                  Explore a wide variety of chips from different brands,
+                  flavors, price ranges, and types, enhancing the user's ability
+                  to find their preferred products.
+                </li>
+                <li>
+                  Access comprehensive product details, such as images,
+                  descriptions, and pricing, ensuring users have the necessary
+                  information to make informed choices.
+                </li>
+                <li>
+                  Simplify the shopping experience with efficient cart
+                  management, leveraging local storage support to facilitate
+                  item selection and purchase.
+                </li>
+                <li>
+                  Prioritize security and user trust with Stripe-powered online
+                  payments, ensuring that transactions are worry-free and
+                  safeguarded.
+                </li>
+                <li>
+                  Implement user authentication and account management through
+                  JSON web tokens, enabling both users and administrators to log
+                  in securely and manage their profiles.
+                </li>
+                <li>
+                  Enhance user engagement by offering order history and delivery
+                  status tracking, providing transparency and convenience
+                  throughout the shopping process.
+                </li>
+              </ul>
+              <div className="flex flex-wrap px-[15px] py-[10px] gap-[10px]">
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  React
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Javascript
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Redux
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  CSS
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  HTML
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Stripe
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Axios
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Webpack
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Node.js
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Sequelize
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Express
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  PosgreSQL
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  JSON Web Token
                 </a>
               </div>
             </div>
 
-            <p className="mb-3 font-normal text-[#AAA6C3]  px-[20px] mb-[10px] text-center">
-              TradeM is a versatile online platform that seamlessly combines the
-              best features of popular marketplaces like Facebook Marketplace
-              and Craigslist with the user-friendliness of Yelp. This powerful
-              platform empowers users to easily resell items they no longer need
-              while discovering great deals within their local communities.
-            </p>
+            <div className="flex flex-col justify-center bg-white rounded-lg shadow-md w-full overflow-hidden lg:m-[15px]">
+              <img
+                className=" w-[80%] h-[100%] rounded-lg border  mx-auto my-[25px]"
+                src="/WebsiteLogo.png"
+                alt=""
+              />
 
-            <ul className="list-disc ml-6 space-y-2 px-[22px] mx-[15px] my-[10px] text-center">
-              <li>
-                Designed and developed an intuitive and modern user interface
-                for a local buying and selling platform, ensuring a
-                user-friendly experience.
-              </li>
-              <li>
-                Implemented advanced search and filtering features, enhancing
-                the platform's usability and enabling users to quickly locate
-                desired products.
-              </li>
-              <li>
-                Created a secure messaging system with real-time notifications,
-                enabling effective buyer-seller communication, negotiation, and
-                transaction coordination while maintaining user privacy.
-              </li>
-              <li>
-                Incorporated user verification features to establish trust and
-                authenticity within the platform, leading to a secure and
-                reliable marketplace.
-              </li>
-              <li>
-                Designed and implemented the database schema using Firebase for
-                various platform features, including the messaging system and
-                database, ensuring efficient data storage and retrieval.
-              </li>
-              <li>
-                Integrated a Leaflet map feature into the platform, allowing
-                users to visualize and interact with geographical data,
-                enhancing the overall user experience and making it easier to
-                discover local deals, plan meetups, and locate items for sale.
-              </li>
-            </ul>
-            <div className="flex flex-wrap px-[15px] py-[10px] gap-[10px]">
-              <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
-                React
-              </a>
-              <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
-                Bootstrap
-              </a>
-              <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
-                Leaflet
-              </a>
-              <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
-                Javascript
-              </a>
-              <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
-                HTML
-              </a>
-              <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
-                CSS
-              </a>
-              <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
-                Axios
-              </a>
-              <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
-                Webpack
-              </a>
-              <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
-                Node.js
-              </a>
-              <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
-                Firebase
-              </a>
-            </div>
-          </div>
-          <div className="flex flex-col justify-center bg-white rounded-lg shadow-md w-full overflow-hidden lg:m-[15px]">
-            <img
-              className="w-[80%] h-[100%] rounded-lg border  mx-auto my-[25px]"
-              src="/ChipCorner.png"
-              alt=""
-            />
-
-            <div className="flex justify-between items-center mx-auto">
-              <h5 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-black px-[20px] my-[10px]">
-                The Chip Corner
-              </h5>
-
-              <div className="flex gap-[15px] justify-center align-middle">
-                {/* Need to find a deploying website. Render Link broke */}
-                <a
-                  href="https://tradem-6faae.web.app/"
-                  title="new window icons"
-                  className="">
-                  {' '}
-                  <img
-                    className="w-[38px] h-[38px]"
-                    src="/LinkImage.png"
-                    alt="Link Icon"
-                  />
-                </a>
-                <a
-                  className="inline-block text-xl items-center justify-center  hover:bg-slate-300 rounded-2xl mr-[10px]"
-                  href="https://github.com/brianhngo/ChipCorner"
-                  rel="noreferrer"
-                  target="_blank">
-                  <img
-                    className="w-[40px] h-[40px]"
-                    src="/github.svg"
-                    alt="GitHub Icon"
-                  />
-                </a>
+              <div className="flex justify-between items-center mx-auto ">
+                <h5 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-black  px-[20px] my-[10px]">
+                  Resume Portfolio
+                </h5>
+                {/* Need To CHange to Deployed Website */}
+                <div className="flex gap-[15px] justify-center align-middle">
+                  <a
+                    href="https://tradem-6faae.web.app/"
+                    title="new window icons"
+                    className="">
+                    {' '}
+                    <img
+                      className="w-[38px] h-[38px]"
+                      src="/LinkImage.png"
+                      alt="Link Icon"
+                    />
+                  </a>
+                  <a
+                    className="inline-block text-xl items-center justify-center  hover:bg-slate-300 rounded-2xl mr-[10px]"
+                    href="https://github.com/brianhngo/ResumePortfolio"
+                    rel="noreferrer"
+                    target="_blank">
+                    <img
+                      className="w-[40px] h-[40px]"
+                      src="/github.svg"
+                      alt="GitHub Icon"
+                    />
+                  </a>
+                </div>
               </div>
-            </div>
 
-            <p className="mb-3 font-normal text-[#AAA6C3]  px-[20px] mb-[10px] text-center">
-              The Chip Corneris an e-commerce website that specializes in
-              selling a wide variety of chips, from classic potato chips to
-              exotic and unique flavors.
-            </p>
-
-            <ul className="list-disc ml-6 space-y-2 px-[22px] my-[10px] mx-[15px] text-center">
-              <li>
-                Explore a wide variety of chips from different brands, flavors,
-                price ranges, and types, enhancing the user's ability to find
-                their preferred products.
-              </li>
-              <li>
-                Access comprehensive product details, such as images,
-                descriptions, and pricing, ensuring users have the necessary
-                information to make informed choices.
-              </li>
-              <li>
-                Simplify the shopping experience with efficient cart management,
-                leveraging local storage support to facilitate item selection
-                and purchase.
-              </li>
-              <li>
-                Prioritize security and user trust with Stripe-powered online
-                payments, ensuring that transactions are worry-free and
-                safeguarded.
-              </li>
-              <li>
-                Implement user authentication and account management through
-                JSON web tokens, enabling both users and administrators to log
-                in securely and manage their profiles.
-              </li>
-              <li>
-                Enhance user engagement by offering order history and delivery
-                status tracking, providing transparency and convenience
-                throughout the shopping process.
-              </li>
-            </ul>
-            <div className="flex flex-wrap px-[15px] py-[10px] gap-[10px]">
-              <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
-                React
-              </a>
-              <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
-                Javascript
-              </a>
-              <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
-                Redux
-              </a>
-              <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
-                CSS
-              </a>
-              <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
-                HTML
-              </a>
-              <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
-                Stripe
-              </a>
-              <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
-                Axios
-              </a>
-              <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
-                Webpack
-              </a>
-              <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
-                Node.js
-              </a>
-              <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
-                Sequelize
-              </a>
-              <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
-                Express
-              </a>
-              <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
-                PosgreSQL
-              </a>
-              <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
-                JSON Web Token
-              </a>
-            </div>
-          </div>
-
-          <div className="flex flex-col justify-center bg-white rounded-lg shadow-md w-full overflow-hidden lg:m-[15px]">
-            <img
-              className=" w-[80%] h-[100%] rounded-lg border  mx-auto my-[25px]"
-              src="/WebsiteLogo.png"
-              alt=""
-            />
-
-            <div className="flex justify-between items-center mx-auto ">
-              <h5 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-black  px-[20px] my-[10px]">
-                Resume Portfolio
-              </h5>
-              {/* Need To CHange to Deployed Website */}
-              <div className="flex gap-[15px] justify-center align-middle">
-                <a
-                  href="https://tradem-6faae.web.app/"
-                  title="new window icons"
-                  className="">
-                  {' '}
-                  <img
-                    className="w-[38px] h-[38px]"
-                    src="/LinkImage.png"
-                    alt="Link Icon"
-                  />
-                </a>
-                <a
-                  className="inline-block text-xl items-center justify-center  hover:bg-slate-300 rounded-2xl mr-[10px]"
-                  href="https://github.com/brianhngo/ResumePortfolio"
-                  rel="noreferrer"
-                  target="_blank">
-                  <img
-                    className="w-[40px] h-[40px]"
-                    src="/github.svg"
-                    alt="GitHub Icon"
-                  />
-                </a>
-              </div>
-            </div>
-
-            <p className="mb-3 font-normal text-[#AAA6C3]  px-[20px] mb-[10px] text-center">
-              Developed a dynamic and responsive web portfolio using React,
-              delivering a modern and visually appealing showcase of my work,
-              skills, and projects.
-            </p>
-
-            <ul className="list-disc ml-6 space-y-2 px-[22px] mx-[15px]  my-[10px] text-center">
-              <li>
+              <p className="mb-3 font-normal text-[#AAA6C3]  px-[20px] mb-[10px] text-center">
                 Developed a dynamic and responsive web portfolio using React,
                 delivering a modern and visually appealing showcase of my work,
                 skills, and projects.
-              </li>
-              <li>
-                Utilized Tailwind CSS to enhance the design and styling of the
-                web portfolio.
-              </li>
-              <li>
-                Developed a responsive portfolio website that can be used on
-                various screen sizes and devices
-              </li>
-              <li>
-                Utilized Vite.js to enhance the build procedure and boost
-                website's loading speed
-              </li>
-            </ul>
-            <div className="flex flex-wrap px-[15px] py-[10px] gap-[10px]">
-              <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
-                React
-              </a>
-              <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
-                Javascript
-              </a>
-              <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
-                HTML
-              </a>
-              <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
-                CSS
-              </a>
-              <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
-                Vite
-              </a>
+              </p>
+
+              <ul className="list-disc ml-6 space-y-2 px-[22px] mx-[15px]  my-[10px] text-center">
+                <li>
+                  Developed a dynamic and responsive web portfolio using React,
+                  delivering a modern and visually appealing showcase of my
+                  work, skills, and projects.
+                </li>
+                <li>
+                  Utilized Tailwind CSS to enhance the design and styling of the
+                  web portfolio.
+                </li>
+                <li>
+                  Developed a responsive portfolio website that can be used on
+                  various screen sizes and devices
+                </li>
+                <li>
+                  Utilized Vite.js to enhance the build procedure and boost
+                  website's loading speed
+                </li>
+              </ul>
+              <div className="flex flex-wrap px-[15px] py-[10px] gap-[10px]">
+                <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
+                  React
+                </a>
+                <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
+                  Javascript
+                </a>
+                <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
+                  HTML
+                </a>
+                <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
+                  CSS
+                </a>
+                <a className="bg-blue-600 text-white px-[3px] py-[1px] mr-1 text-sm rounded">
+                  Vite
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -1256,6 +1362,26 @@ function LetsConnect2() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
+  const containerVariant = {
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { delay: 0.2 },
+    },
+    hidden: { opacity: 0, scale: 0.9 },
+  };
+
+  const control = useAnimation();
+  const [ref, inView] = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      control.start('visible');
+    } else {
+      control.start('hidden');
+    }
+  }, [control, inView]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -1277,119 +1403,131 @@ function LetsConnect2() {
   const onChangeMessageHandler = (event) => {
     setMessage(event.value);
   };
-  return (
-    <section id="lets-connect" className="antialiased m-[10%]">
-      <div className="flex min-h-screen justify-center items-center">
-        <div className="flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 bg-red-300 sm:p-12 max-w-4xl p-8 rounded-xl shadow-lg text-white overflow-hidden">
-          <div className="flex flex-col space-y-8 justify-between">
-            <div>
-              <h1 className="font-bold text-4xl tracking-wide"> Contact Us </h1>
-              <p className="pt-2 text-sm"> Lorem </p>
-            </div>
-            <div className="flex flex-col space-y-6">
-              <div className="inline-flex space-x-2 items-center"></div>
-              <div className="inline-flex space-x-2 items-center">
-                <ion-icon style={{ fontSize: '28px' }} name="mail"></ion-icon>
-                <span> brianhngo@gmail.com </span>
-              </div>
-              <div className="inline-flex space-x-2 items-center">
-                <ion-icon style={{ fontSize: '28px' }} name="pin"></ion-icon>
 
-                <span> Orange County, CA </span>
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={control}
+      variants={containerVariant}>
+      <section id="lets-connect" className="antialiased m-[10%]">
+        <div className="flex min-h-screen justify-center items-center">
+          <div className="flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 bg-red-300 sm:p-12 max-w-4xl p-8 rounded-xl shadow-lg text-white overflow-hidden">
+            <div className="flex flex-col space-y-8 justify-between">
+              <div>
+                <h1 className="font-bold text-4xl tracking-wide">
+                  {' '}
+                  Contact Us{' '}
+                </h1>
+                <p className="pt-2 text-sm"> Lorem </p>
+              </div>
+              <div className="flex flex-col space-y-6">
+                <div className="inline-flex space-x-2 items-center"></div>
+                <div className="inline-flex space-x-2 items-center">
+                  <ion-icon style={{ fontSize: '28px' }} name="mail"></ion-icon>
+                  <span> brianhngo@gmail.com </span>
+                </div>
+                <div className="inline-flex space-x-2 items-center">
+                  <ion-icon style={{ fontSize: '28px' }} name="pin"></ion-icon>
+
+                  <span> Orange County, CA </span>
+                </div>
+              </div>
+              <a
+                href="../../public/Resume.pdf" // Replace with the actual path to your resume file
+                target="_blank" // Open in a new tab or window
+                className="font-semibold transition-all duration-300 flex items-center p-4 w-48 rounded-full border-2 border-gray-300 hover:border-white hover-bg-white hover-text-gray-800 cursor-pointer">
+                <ion-icon
+                  name="document"
+                  style={{ fontSize: '48px' }}></ion-icon>
+                Open CV
+              </a>
+              <div className="flex space-x-4 text-lg justify-center align-middle">
+                <a
+                  href="https://github.com/brianhngo/"
+                  rel="noreferrer"
+                  target="_blank">
+                  <ion-icon
+                    name="logo-github"
+                    style={{ fontSize: '48px' }}></ion-icon>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/brianhngo/"
+                  rel="noreferrer"
+                  target="_blank">
+                  <ion-icon
+                    name="logo-linkedin"
+                    style={{ fontSize: '48px' }}></ion-icon>
+                </a>
               </div>
             </div>
-            <a
-              href="../../public/Resume.pdf" // Replace with the actual path to your resume file
-              target="_blank" // Open in a new tab or window
-              className="font-semibold transition-all duration-300 flex items-center p-4 w-48 rounded-full border-2 border-gray-300 hover:border-white hover-bg-white hover-text-gray-800 cursor-pointer">
-              <ion-icon name="document" style={{ fontSize: '48px' }}></ion-icon>
-              Open CV
-            </a>
-            <div className="flex space-x-4 text-lg justify-center align-middle">
-              <a
-                href="https://github.com/brianhngo/"
-                rel="noreferrer"
-                target="_blank">
-                <ion-icon
-                  name="logo-github"
-                  style={{ fontSize: '48px' }}></ion-icon>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/brianhngo/"
-                rel="noreferrer"
-                target="_blank">
-                <ion-icon
-                  name="logo-linkedin"
-                  style={{ fontSize: '48px' }}></ion-icon>
-              </a>
-            </div>
-          </div>
-          <div className="relative">
-            <div className="absolute z-0 w-40 h-40 bg-black-100 rounded-full -right-28 -top-28"></div>
-            <div className="absolute z-0 w-40 h-40 bg-black-100 rounded-full -right-28 -bottom-16"></div>
-            <div className="bg-white rounded-xl shadow-lg p-8 text-gray-600 md:w-80">
-              <form
-                name="submit-to-google-sheet"
-                className="flex flex-col space-y-4"
-                onSubmit={handleSubmit}>
-                <div>
-                  <label htmlFor="" className="text-sm">
+            <div className="relative">
+              <div className="absolute z-0 w-40 h-40 bg-black-100 rounded-full -right-28 -top-28"></div>
+              <div className="absolute z-0 w-40 h-40 bg-black-100 rounded-full -right-28 -bottom-16"></div>
+              <div className="bg-white rounded-xl shadow-lg p-8 text-gray-600 md:w-80">
+                <form
+                  name="submit-to-google-sheet"
+                  className="flex flex-col space-y-4"
+                  onSubmit={handleSubmit}>
+                  <div>
+                    <label htmlFor="" className="text-sm">
+                      {' '}
+                      Your Name
+                    </label>
+                    <input
+                      type="text"
+                      name="Name"
+                      value={name}
+                      placeholder="Your name"
+                      onChange={onChangeNameHandler}
+                      className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-red-200"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="" className="text-sm">
+                      {' '}
+                      Your Email
+                    </label>
+                    <input
+                      type="email"
+                      name="Email"
+                      value={email}
+                      onChange={onChangeEmailHandler}
+                      placeholder="Email Address"
+                      className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-red-200"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="" className="text-sm">
+                      {' '}
+                      Your Message
+                    </label>
+                    <textarea
+                      type="text"
+                      placeholder="Your message"
+                      name="Message"
+                      value={message}
+                      onChange={onChangeMessageHandler}
+                      required
+                      rows="4"
+                      className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-red-200"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="inline-block self-end bg-red-300 text-white font-bold rounded-lg px-6 py-2 uppercase text-sm">
                     {' '}
-                    Your Name
-                  </label>
-                  <input
-                    type="text"
-                    name="Name"
-                    value={name}
-                    placeholder="Your name"
-                    onChange={onChangeNameHandler}
-                    className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-red-200"
-                    required
-                  />
-                </div>
-                <div>
-                  <label htmlFor="" className="text-sm">
-                    {' '}
-                    Your Email
-                  </label>
-                  <input
-                    type="email"
-                    name="Email"
-                    value={email}
-                    onChange={onChangeEmailHandler}
-                    placeholder="Email Address"
-                    className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-red-200"
-                    required
-                  />
-                </div>
-                <div>
-                  <label htmlFor="" className="text-sm">
-                    {' '}
-                    Your Message
-                  </label>
-                  <textarea
-                    type="text"
-                    placeholder="Your message"
-                    name="Message"
-                    value={message}
-                    onChange={onChangeMessageHandler}
-                    required
-                    rows="4"
-                    className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-red-200"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="inline-block self-end bg-red-300 text-white font-bold rounded-lg px-6 py-2 uppercase text-sm">
-                  {' '}
-                  Submit{' '}
-                </button>
-              </form>
+                    Submit{' '}
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </motion.div>
   );
 }
 
