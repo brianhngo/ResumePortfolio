@@ -5,16 +5,29 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="/src/main.jsx"></script>
+    <ion-icon src="/path/to/external/file.svg"></ion-icon>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,600&display=swap"
       rel="stylesheet" />
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <script>
+      const scriptURL =
+        'https://script.google.com/macros/s/AKfycbxVsWL5pCD_R0_GOlbMAzhmuw5T9q4UVS4Lj7lseMUdq7pXNQYMAvRt7jd-knsrQGu0/exec';
+      const form = document.forms['submit-to-google-sheet'];
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+          .then((response) => console.log('Success!', response))
+          .catch((error) => console.error('Error!', error.message));
+      });
+    </script>
     <title>Brian Ngo</title>
   </head>
   <body
-    class="bg-gradient-to-t from-[#fbc2eb] to-[#a6c1ee] h-screen w-full font-[Poppins]">
+    class="bg-gradient-to-br from-[#8BC6EC] to-[#9599E2] h-screen w-full font-[Arial]">
     <div id="root" class="w-full h-full"></div>
   </body>
 </html>

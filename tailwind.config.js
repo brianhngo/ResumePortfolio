@@ -2,14 +2,6 @@
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    spacing: {
-      px: '1px',
-      0: '0',
-      0.5: '0.125rem',
-      1: '0.25rem',
-      1.5: '0.375rem',
-      2: '0.5rem',
-    },
     screens: {
       sm: '390px',
       md: '768px',
@@ -23,10 +15,6 @@ export default {
       serif: ['Merriweather', 'serif'],
     },
     extend: {
-      spacing: {
-        128: '32rem',
-        144: '36rem',
-      },
       borderRadius: {
         '4xl': '2rem',
       },
