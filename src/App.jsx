@@ -149,7 +149,7 @@ function Profile2() {
       <div className="flex flex-col md:flex-row w-[50%] h-[50%] mx-auto my-0 items-center">
         <img
           className="rounded-full md:h-80 md:w-80 h-[200px] w-[200px] flex mx-auto items-center mr-[2.5rem]"
-          src="/ProfilePicture.jpg"
+          src="/Circular.jpg"
           alt=""
         />
         <div className="w-full h-full flex-1 self-center text-center">
@@ -157,17 +157,18 @@ function Profile2() {
             {' '}
             Hello, I'm{' '}
           </p>
-          <h1 className="mt-4 mb-4  md:text-[3.75rem] text-[2.5rem] font-bold leading-none tracking-tight text-neutral-950 ">
+          <h1 className="mt-4 mb-4  md:text-[4rem] text-[2.5rem] font-bold leading-none tracking-tight text-neutral-950 ">
             {' '}
             Brian Ngo{' '}
           </h1>
-          <p className="mt-4 mb-4 md:text-[1.75rem] text-[2rem] font-normal text-neutral-950">
+          <p className="mt-4 mb-4 md:text-[1.75rem] text-[2rem] font-courier-new text-neutral-950">
             {' '}
             Software Developer{' '}
           </p>
           <div className="flex justify-center gap-4 space-x-4">
             <a
-              href="/Resume.pdf"
+              href="https://drive.google.com/file/d/19980rgl2NNQwR4N4tmAWUlEZo2cjCsCQ/view?usp=sharing"
+              rel="noreferrer"
               target="_blank"
               className="font-semibold transition-all duration-300 flex items-center p-4 w-32 rounded-full border-2 border-gray-300 hover:border-white hover-bg-white hover-text-gray-800 cursor-pointer">
               <ion-icon
@@ -253,8 +254,8 @@ const AboutMe = () => {
               animate={control}
               variants={boxVariant}>
               <img />
-              <h3>Experience</h3>
-              <p>0-1 Years</p>
+              <h3 className="text-center text-[24px]">Experience</h3>
+              <p className="text-center text-[24px]">0-1 Years</p>
             </motion.div>
             <motion.div
               className="p-6 flex-1 bg-white rounded-full border-2 border-gray-400 text-center"
@@ -263,8 +264,8 @@ const AboutMe = () => {
               animate={control}
               variants={boxVariant}>
               <img />
-              <h3>Education</h3>
-              <p>
+              <h3 className="text-center text-[24px]">Education</h3>
+              <p className="text-center text-[24px]">
                 Full Stack Academy Web Development & Software Engineering
                 Certificate
                 <br />
@@ -278,13 +279,17 @@ const AboutMe = () => {
             initial="hidden"
             animate={control}
             variants={boxVariant}>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quis
-              reprehenderit et laborum, rem, dolore eum quod voluptate
-              exercitationem nobis, nihil esse debitis maxime facere minus sint
-              delectus velit in eos quo officiis explicabo deleniti dignissimos.
-              Eligendi illum libero dolorum cum laboriosam corrupti quidem,
-              reiciendis ea magnam? Nulla, impedit fuga!
+            <p className="w-[80%] text-center mx-auto text-[20px] ">
+              As a versatile software developer with a diverse background as a
+              former R&D engineer in biotech, my journey has been a fusion of
+              technology, innovation, and a strong passion for creating
+              applications that make a meaningful impact on people's lives.
+              Beyond the lines of code, I find inspiration in design and the art
+              of user-friendly interfaces. When I'm not immersed in the digital
+              realm, I thrive in the real world, where I can often be found at
+              concerts, enjoying the thrill of live music, or savoring the great
+              outdoors. And lately, my newest addiction is the exhilarating
+              sport of pickleball.
             </p>
           </motion.div>
         </div>
@@ -1417,9 +1422,8 @@ function LetsConnect2() {
               <div>
                 <h1 className="font-bold text-4xl tracking-wide">
                   {' '}
-                  Contact Us{' '}
+                  Contact Me{' '}
                 </h1>
-                <p className="pt-2 text-sm"> Lorem </p>
               </div>
               <div className="flex flex-col space-y-6">
                 <div className="inline-flex space-x-2 items-center"></div>
@@ -1434,7 +1438,8 @@ function LetsConnect2() {
                 </div>
               </div>
               <a
-                href="../../public/Resume.pdf" // Replace with the actual path to your resume file
+                href="https://drive.google.com/file/d/19980rgl2NNQwR4N4tmAWUlEZo2cjCsCQ/view?usp=sharing" // Replace with the actual path to your resume file
+                rel="noreferrer"
                 target="_blank" // Open in a new tab or window
                 className="font-semibold transition-all duration-300 flex items-center p-4 w-48 rounded-full border-2 border-gray-300 hover:border-white hover-bg-white hover-text-gray-800 cursor-pointer">
                 <ion-icon

@@ -13,6 +13,9 @@ export default {
     fontFamily: {
       sans: ['Graphik', 'sans-serif'],
       serif: ['Merriweather', 'serif'],
+      fontFamily: {
+        'courier-new': ['Courier New', 'monospace'],
+      },
     },
     extend: {
       borderRadius: {
