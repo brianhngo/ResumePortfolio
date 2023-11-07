@@ -19,10 +19,10 @@ TradeM is built using the following technologies:
       </a>
   </p>
   <p> Vite: Building and compiling of my website.
-    <a>
-      <img width="80" height = "40" src="https://github.com/brianhngo/ResumePortfolio/blob/main/public/vite.svg alt="Vite" />
-    </a>
-  </p>
+  <a href="https://github.com/brianhngo/ResumePortfolio/blob/main/public/vite.svg">
+    <img width="80" height="40" src="https://github.com/brianhngo/ResumePortfolio/blob/main/public/vite.svg" alt="Vite" />
+  </a>
+</p>
   <p> JavaScript: Logic for frontend functionality.
       <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"> 
       <img src="https://user-images.githubusercontent.com/48143100/163075516-9b38424a-eec9-411f-8718-6facb953d642.png" alt="javascript" width="40" height="40"/> 
