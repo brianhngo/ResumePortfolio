@@ -406,6 +406,22 @@ function Skills() {
                   </div>
                 </li>
               </a>
+              <a
+                className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
+                href="https://www.typescriptlang.org/"
+                rel="noreferrer"
+                target="_blank">
+                <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
+                  <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
+                    <img
+                      className="w-[70px] h-[70px]"
+                      src="/typescript-original.svg"
+                      alt="Arduino Icon"
+                    />
+                    <h3 className="text-center text-white">Typescript</h3>
+                  </div>
+                </li>
+              </a>
             </ul>
           </div>
           <div className="p-6 flex-1 bg-white rounded-xl border-2 border-gray-400 text-center m-[10%] ">
@@ -658,6 +674,23 @@ function Skills() {
                       alt="Mocha Icon"
                     />
                     <h3 className="text-center text-white">Mocha</h3>
+                  </div>
+                </li>
+              </a>
+
+              <a
+                className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
+                href="https://mochajs.org/"
+                rel="noreferrer"
+                target="_blank">
+                <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
+                  <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
+                    <img
+                      className="w-[70px] h-[70px]"
+                      src="/chartjs-logo.svg"
+                      alt="Mocha Icon"
+                    />
+                    <h3 className="text-center text-white">ChartJS</h3>
                   </div>
                 </li>
               </a>
@@ -918,7 +951,7 @@ function Projects2() {
 
                 <div className="flex gap-[15px] justify-center align-middle">
                   {/* Need to find a deploying website. Render Link broke */}
-                  <a
+                  {/* <a
                     href="https://tradem-6faae.web.app/"
                     title="new window icons"
                     className="">
@@ -928,7 +961,7 @@ function Projects2() {
                       src="/LinkImage.png"
                       alt="Link Icon"
                     />
-                  </a>
+                  </a> */}
                   <a
                     className="inline-block text-xl items-center justify-center  hover:bg-slate-300 rounded-2xl mr-[10px]"
                     href="https://github.com/brianhngo/ChipCorner"
@@ -1020,6 +1053,236 @@ function Projects2() {
                 </a>
                 <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
                   JSON Web Token
+                </a>
+              </div>
+            </div>
+
+            <div className="flex  w-[305px] h-[1488px] md:w-[1000px] md:h-[1000px] flex-col justify-center bg-white rounded-lg shadow-md  overflow-hidden lg:m-[15px]">
+              <img
+                className="w-[80%]  h-[40%] rounded-lg border  mx-auto my-[25px]"
+                src="/FinanceMeLogo.png"
+                alt=""
+              />
+
+              <div className="flex justify-between items-center mx-auto">
+                <h5 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-black px-[20px] my-[10px]">
+                  FinanceMe
+                </h5>
+
+                <div className="flex gap-[15px] justify-center align-middle">
+                  {/* Need to find a deploying website. Render Link broke */}
+                  {/* <a
+                    href="https://tradem-6faae.web.app/"
+                    title="new window icons"
+                    className="">
+                    {' '}
+                    <img
+                      className="w-[38px] h-[38px]"
+                      src="/LinkImage.png"
+                      alt="Link Icon"
+                    />
+                  </a> */}
+
+                  <a
+                    className="inline-block text-xl items-center justify-center  hover:bg-slate-300 rounded-2xl mr-[10px]"
+                    href="https://github.com/brianhngo/FinanceMe"
+                    rel="noreferrer"
+                    target="_blank">
+                    <imgxs
+                      className="w-[40px] h-[40px]"
+                      src="/github.svg"
+                      alt="GitHub Icon"
+                    />
+                  </a>
+                </div>
+              </div>
+
+              <p className="mb-3 font-normal text-[#AAA6C3]  px-[20px] mb-[10px] text-center">
+                FinanceMe is your all-in-one financial companion, offering a
+                seamless blend of budgeting, bill management, and insightful
+                transaction tracking. With an intuitive interface, FinanceMe
+                empowers users to effortlessly stay on top of their budgets,
+                savings plans, and monthly spending trends.
+              </p>
+
+              <ul className="list-disc ml-6 space-y-2 px-[22px] my-[10px] mx-[15px] text-center">
+                <li>
+                  Effortlessly create and manage budgets tailored to your
+                  financial goals, with easy-to-use tools for income tracking,
+                  expense categorization, and personalized budget adjustments.
+                </li>
+                <li>
+                  Plan for the future by setting up savings goals and tracking
+                  your progress. FinanceMe helps you visualize your savings
+                  journey, making it easy to stay motivated and achieve your
+                  financial objectives.
+                </li>
+                <li>
+                  Gain valuable insights into your spending habits with
+                  intuitive visualizations of your monthly transaction trends.
+                  Identify patterns, discover potential areas for savings, and
+                  make informed decisions for a more financially savvy
+                  lifestyle.
+                </li>
+                <li>
+                  Whether you're a seasoned budgeting pro or just starting your
+                  financial journey, FinanceMe adapts to your unique needs. It's
+                  a versatile financial ally that grows with you, providing the
+                  tools you need at every stage of your financial life.
+                </li>
+
+                <li>
+                  With FinanceMe's user-friendly design, navigating through your
+                  financial data is a breeze. The app is designed for
+                  simplicity, ensuring that users of all levels can easily
+                  harness the power of financial management.
+                </li>
+              </ul>
+              <div className="flex flex-wrap px-[15px] py-[10px] gap-[10px]">
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  React
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Javascript
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Typescript
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  ChartJS
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Redux
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  CSS
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  HTML
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Axios
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Vite
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Node.js
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Sequelize
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Express
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  PosgreSQL
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Tailwind
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Firebase
+                </a>
+              </div>
+            </div>
+
+            <div className="flex flex-col w-[305px] h-[1488px] md:w-[1000px] md:h-[1000px]  justify-center bg-white rounded-lg shadow-md  overflow-hidden lg:m-[15px]">
+              <img
+                className="w-[50%] h-[50%] rounded-lg border  mx-auto my-[25px]"
+                src="/WeatherHere.png"
+                alt=""
+              />
+
+              <div className="flex justify-between items-center mx-auto">
+                <h5 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-black px-[20px] my-[10px]">
+                  WeatherHere
+                </h5>
+
+                <div className="flex gap-[15px] justify-center align-middle">
+                  {/* Need to find a deploying website. Render Link broke */}
+                  {/* <a
+                    href="https://tradem-6faae.web.app/"
+                    title="new window icons"
+                    className="">
+                    {' '}
+                    <img
+                      className="w-[38px] h-[38px]"
+                      src="/LinkImage.png"
+                      alt="Link Icon"
+                    />
+                  </a> */}
+
+                  <a
+                    className="inline-block text-xl items-center justify-center  hover:bg-slate-300 rounded-2xl mr-[10px]"
+                    href="https://github.com/brianhngo/WeatherHere"
+                    rel="noreferrer"
+                    target="_blank">
+                    <img
+                      className="w-[40px] h-[40px]"
+                      src="/github.svg"
+                      alt="GitHub Icon"
+                    />
+                  </a>
+                </div>
+              </div>
+
+              <p className="mb-3 font-normal text-[#AAA6C3]  px-[20px] mb-[10px] text-center">
+                WeatherHere is your go-to solution for all things
+                weather-related, offering you real-time weather information at
+                your fingertips. With WeatherHere, you can easily stay informed
+                about current conditions, forecasts, and more. It's the perfect
+                companion for planning your day or your upcoming adventures.
+              </p>
+
+              <ul className="list-disc ml-6 space-y-2 px-[22px] my-[10px] mx-[15px] text-center">
+                <li>
+                  Stay ahead of the weather by receiving forecasts for any
+                  location. Know what the sky has in store for you in the coming
+                  days.
+                </li>
+                <li>
+                  Get real-time updates on weather conditions. Access
+                  information like precipitation levels, UV index, temperature,
+                  and more.
+                </li>
+                <li>
+                  Stay prepared for the week ahead with our comprehensive 7-day
+                  forecast. You can make long-term plans with confidence,
+                  whether it's a weekend adventure or your workweek schedule.
+                </li>
+                <li>
+                  Our app features an intuitive and user-friendly interface.
+                  It's designed for easy navigation and a seamless user
+                  experience, making it accessible to all.
+                </li>
+              </ul>
+              <div className="flex flex-wrap px-[15px] py-[10px] gap-[10px]">
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  React
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Javascript
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  React Native
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  HTML
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  CSS
+                </a>
+
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Axios
+                </a>
+
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  XCode Simulator
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Expo
                 </a>
               </div>
             </div>

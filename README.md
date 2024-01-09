@@ -1,13 +1,15 @@
 # ResumePortfolio
 
-## Deployed Link 
+## Deployed Link
+
 https://resume-portfolio-psi.vercel.app/
 
 A dynamic and responsive web portfolio using React, delivering a modern and visually appealing showcase of my work, skills, and projects.
 
-TradeM is built using the following technologies:
+My resume portfolio is built using the following technologies:
 
 **Technologies**:
+
   <p> React: A JavaScript library for building user interfaces. 
      <a href="https://reactjs.org/"> 
         <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg" alt="react" width="40" height="40"/> 
@@ -43,7 +45,6 @@ TradeM is built using the following technologies:
             <img src="https://raw.githubusercontent.com/brianhngo/ChipCorner/main/public/images/axios.png" alt="axios" width="40" height="40"/>
         </a>
     </p>
-    
 
 
 ## Features
@@ -58,27 +59,24 @@ Utilized Vite.js to enhance the build procedure and boost website's loading spee
 
 ## Demo
 
-
 ## Getting Started
-To start using TradeM, you have two options:
+
+you have two options:
 
 ## Run on Deployed Website
 
-https://tradem-6faae.web.app
+https://resume-portfolio-psi.vercel.app/
 
-## Run Locally 
+## Run Locally
 
-  Clone the project
+Clone the project
 
-  Go to the Project directory
+Go to the Project directory
 
-  Install dependencies
-  npm install
+Install dependencies
+npm install
 
-  Start the server
-  Npm run build
+Start the server
+Npm run build
 
-  Access the project in your browser at http://localhost:5173
-
-
-
+Access the project in your browser at http://localhost:5173
