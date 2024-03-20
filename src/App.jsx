@@ -1057,7 +1057,7 @@ function Projects2() {
               </div>
             </div>
 
-            <div className="flex  w-[305px] h-[1488px] md:w-[1000px] md:h-[1000px] flex-col justify-center bg-white rounded-lg shadow-md  overflow-hidden lg:m-[15px]">
+            <div className="flex flex-col justify-center bg-white rounded-lg shadow-md w-full overflow-hidden lg:m-[15px]">
               <img
                 className="w-[80%]  h-[40%] rounded-lg border  mx-auto my-[25px]"
                 src="/FinanceMeLogo.png"
@@ -1187,7 +1187,7 @@ function Projects2() {
               </div>
             </div>
 
-            <div className="flex flex-col w-[305px] h-[1488px] md:w-[1000px] md:h-[1000px]  justify-center bg-white rounded-lg shadow-md  overflow-hidden lg:m-[15px]">
+            <div className="flex flex-col justify-center bg-white rounded-lg shadow-md w-full overflow-hidden lg:m-[15px]">
               <img
                 className="w-[50%] h-[50%] rounded-lg border  mx-auto my-[25px]"
                 src="/WeatherHere.png"
