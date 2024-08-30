@@ -446,6 +446,54 @@ function Skills() {
                   </div>
                 </li>
               </a>
+              <a
+                className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
+                href="https://react.dev/"
+                rel="noreferrer"
+                target="_blank">
+                <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
+                  <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
+                    <img
+                      className="w-[70px] h-[70px]"
+                      src="/react.svg"
+                      alt="React Icon"
+                    />
+                    <h3 className="text-center text-white">React Native</h3>
+                  </div>
+                </li>
+              </a>
+              <a
+                className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
+                href="https://nextjs.org/"
+                rel="noreferrer"
+                target="_blank">
+                <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
+                  <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
+                    <img
+                      className="w-[70px] h-[70px]"
+                      src="/nextjs.svg"
+                      alt="NextJs Icon"
+                    />
+                    <h3 className="text-center text-white">Next.js</h3>
+                  </div>
+                </li>
+              </a>
+              <a
+                className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
+                href="https://angular.dev/"
+                rel="noreferrer"
+                target="_blank">
+                <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
+                  <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
+                    <img
+                      className="w-[70px] h-[70px]"
+                      src="/angular.svg"
+                      alt="Angular Icon"
+                    />
+                    <h3 className="text-center text-white">Angular</h3>
+                  </div>
+                </li>
+              </a>
 
               <a
                 className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
@@ -587,6 +635,38 @@ function Skills() {
                       alt="Firebase Icon"
                     />
                     <h3 className="text-center text-white">Firebase</h3>
+                  </div>
+                </li>
+              </a>
+              <a
+                className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
+                href="https://www.microsoft.com/en-us/sql-server"
+                rel="noreferrer"
+                target="_blank">
+                <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
+                  <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
+                    <img
+                      className="w-[70px] h-[70px]"
+                      src="/sql.svg"
+                      alt="SQL Icon"
+                    />
+                    <h3 className="text-center text-white">SQL</h3>
+                  </div>
+                </li>
+              </a>
+              <a
+                className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
+                href="https://supabase.com/"
+                rel="noreferrer"
+                target="_blank">
+                <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
+                  <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
+                    <img
+                      className="w-[70px] h-[70px]"
+                      src="/supabase.svg"
+                      alt="Supabase Icon"
+                    />
+                    <h3 className="text-center text-white">Supabase</h3>
                   </div>
                 </li>
               </a>
@@ -779,6 +859,68 @@ function Skills() {
                   </div>
                 </li>
               </a>
+              <a
+                className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
+                href="https://www.postman.com/"
+                rel="noreferrer"
+                target="_blank">
+                <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
+                  <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
+                    <img
+                      className="w-[70px] h-[70px]"
+                      src="/postman.svg"
+                      alt="Postman Icon"
+                    />
+                    <h3 className="text-center text-white"> Postman </h3>
+                  </div>
+                </li>
+              </a>
+              <a
+                className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
+                href="https://leafletjs.com/"
+                rel="noreferrer"
+                target="_blank">
+                <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
+                  <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
+                    <img
+                      className="w-[70px] h-[70px]"
+                      src="/leaflet.svg"
+                      alt="Websockets Icon"
+                    />
+                    <h3 className="text-center text-white"> Websockets </h3>
+                  </div>
+                </li>
+              </a>
+              <a
+                className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
+                href="https://www.npmjs.com/package/bcryptjs"
+                rel="noreferrer"
+                target="_blank">
+                <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
+                  <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
+                    <h3 className="text-center text-white"> bcrypt </h3>
+                  </div>
+                </li>
+              </a>
+              <a
+                className="hover:text-[#808080] text-xl flex text-center items-center justify-center pt-[12px]"
+                href="https://jwt.io/"
+                rel="noreferrer"
+                target="_blank">
+                <li className="h-[130px] w-[130px] rounded-lg border-2 border-opacity-60 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 mx-auto transform translate-y-1 hover:translate-y-0 hover:scale-105 transition-transform">
+                  <div className="h-full w-full justify-center bg-gray-800 back mx-auto flex flex-col items-center">
+                    <img
+                      className="w-[70px] h-[70px]"
+                      src="https://jwt.io/img/pic_logo.svg"
+                      alt="JWT Icon"
+                    />
+                    <h3 className="text-center text-white">
+                      {' '}
+                      JWT (JSON Web Token){' '}
+                    </h3>
+                  </div>
+                </li>
+              </a>
             </ul>
           </div>
         </div>
@@ -823,6 +965,101 @@ function Projects2() {
         </h1>
         <div className="flex items-center justify-center">
           <div className="grid lg:grid-cols-2 grid-cols-1 lg:w-[90%] w-[80%] gap-[30px]">
+            <div className="flex flex-col justify-center bg-white rounded-lg shadow-md w-full overflow-hidden lg:m-[15px]">
+              <img
+                className=" w-[80%] h-[100%]  rounded-lg border  mx-auto my-[25px] "
+                src="/chatterbox.png"
+                alt=""
+              />
+
+              <div className="flex justify-between items-center mx-auto">
+                <h5 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-black px-[20px] my-[10px] ">
+                  ChatterBox
+                </h5>
+
+                <div className="flex gap-[15px] justify-center align-middle">
+                  <a
+                    className="inline-block text-xl items-center justify-center  hover:bg-slate-300 rounded-2xl mr-[10px]"
+                    href="https://github.com/brianhngo/ChatterBox"
+                    rel="noreferrer"
+                    target="_blank">
+                    <img
+                      className="w-[40px] h-[40px]"
+                      src="/github.svg"
+                      alt="GitHub Icon"
+                    />
+                  </a>
+                </div>
+              </div>
+
+              <p className="mb-3 font-normal text-[#AAA6C3]  px-[20px] mb-[10px] text-center">
+                Developed a full-stack Twitch clone application featuring live
+                streaming, real-time chat, and viewer tracking using Next.JS,
+                Supabase, Express, Node.js, and Socket.IO.
+              </p>
+
+              <ul className="list-disc ml-6 space-y-2 px-[22px] mx-[15px] my-[10px] text-center">
+                <li>
+                  Developed a Full-Stack Twitch Clone Application: Built a live
+                  streaming platform with Next.js/React frontend and
+                  Node.js/Express backend, featuring real-time chat, dynamic
+                  notifications, and viewer tracking.
+                </li>
+                <li>
+                  Engineered Real-Time Features and Scalable Chat Systems:
+                  Utilized WebSocket (Socket.IO) for live chat and viewer count
+                  updates, supporting multiple chat rooms with real-time message
+                  delivery and moderation.
+                </li>
+                <li>
+                  Integrated Live Push Notifications and QR-based 2FA
+                  Authentication: Implemented email alerts for live streams and
+                  Google Firebase Authentication with QR code-based two-factor
+                  authentication for enhanced security.
+                </li>
+                <li>
+                  Applied Best Practices in Code Quality and Responsive Design:
+                  Conducted code reviews, testing, and debugging while
+                  developing responsive UI components with React and Tailwind
+                  CSS for a seamless user experience.
+                </li>
+              </ul>
+              <div className="flex flex-wrap px-[15px] py-[10px] gap-[10px]">
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Next.js
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  React
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Node.js
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Express
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Supabase
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  CSS
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Tailwind
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Firebase
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  JWT.io
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  bcrypt
+                </a>
+                <a className="bg-blue-600 text-white px-2 py-1 mr-1 text-sm rounded">
+                  Socket.io
+                </a>
+              </div>
+            </div>
             <div className="flex flex-col justify-center bg-white rounded-lg shadow-md w-full overflow-hidden lg:m-[15px]">
               <img
                 className=" w-[80%] h-[100%]  rounded-lg border  mx-auto my-[25px] "
