@@ -46,7 +46,6 @@ My resume portfolio is built using the following technologies:
         </a>
     </p>
 
-
 ## Features
 
 Developed a dynamic and responsive web portfolio using React, delivering a modern and visually appealing showcase of my work, skills, and projects.
