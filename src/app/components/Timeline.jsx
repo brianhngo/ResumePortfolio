@@ -30,6 +30,64 @@ export default function Timeline() {
                 overflow: 'hidden',
               }}>
               <Image
+                src="/others/abstruse1.jpeg"
+                alt="Bootcamp"
+                layout="fill"
+                objectFit="cover" // Use cover to ensure the image covers the container
+              />
+            </div>
+          }>
+          <h3 className="vertical-timeline-element-title">
+            Software Developer
+          </h3>
+          <h4 className="vertical-timeline-element-subtitle rounded-full">
+            Abstruse
+          </h4>
+          <ul className="list-disc ml-6 space-y-2">
+            <li>
+              Developed API routes with Node.js and JavaScript, integrating
+              third-party services like SendGrid for automated email solutions.
+            </li>
+            <li>
+              Designed and maintained RESTful APIs to optimize communication
+              between the frontend and backend.
+            </li>
+            <li>
+              Created and implemented new frontend features using React and
+              Tailwind CSS, delivering dynamic and responsive user interfaces.
+            </li>
+            <li>
+              Integrated backend services with frontend components, ensuring
+              smooth data flow and real-time interactions for an enhanced user
+              experience.
+            </li>
+            <li>
+              Conducted comprehensive testing and debugging to optimize
+              performance, security, and reliability across both frontend and
+              backend systems.
+            </li>
+            <li>
+              Developed unit tests for frontend and backend components using
+              frameworks like Jest and Mocha, improving code quality and
+              stability.
+            </li>
+          </ul>
+        </VerticalTimelineElement>
+        <VerticalTimelineElement
+          visible={true}
+          className="vertical-timeline-element--work"
+          date={<span style={{ color: '#fff' }}>Apr 2023 - Aug 2023</span>}
+          iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+          icon={
+            <div
+              style={{
+                position: 'relative',
+                width: '100%',
+                height: '100%',
+                borderRadius: '50%',
+                overflow: 'hidden',
+              }}>
+              <Image
                 src="/others/fsa.png"
                 alt="Bootcamp"
                 layout="fill"

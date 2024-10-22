@@ -250,6 +250,32 @@ const TAB_DATA = [
             </li>
           </ul>
         </div>
+        <strong>Testing:</strong>
+        <ul className="list-disc grid grid-cols-2 lg:grid-cols-3 w-full space-y-2 pl-6">
+          <li className="">
+            <div className="flex items-center space-x-2 ">
+              <span>Jest</span>
+              <Image
+                src="/technologies/jest.svg"
+                alt="Sequelize icon"
+                width={24}
+                height={24}
+              />
+            </div>
+          </li>
+          <li className="">
+            <div className="flex items-center space-x-2 ">
+              <span>Vitest</span>
+              <Image
+                src="/technologies/vitest.svg"
+                alt="Sequelize icon"
+                width={24}
+                height={24}
+              />
+            </div>
+          </li>
+          <ul />
+        </ul>
         <strong>Libraries:</strong>
         <ul className="list-disc grid grid-cols-2 lg:grid-cols-3 w-full space-y-2 pl-6">
           <li className="">
