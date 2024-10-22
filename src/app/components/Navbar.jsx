@@ -56,7 +56,7 @@ const Navbar = () => {
             ))}
             <div className="flex flex-col h-full justify-end">
               <a
-                href="https://drive.google.com/file/d/1iAI71swE-h6mhw3Li7yHmpKFRhR9X4LP/view?usp=sharing"
+                href="https://drive.google.com/file/d/1BALlKjg_G7CZgzjGrd5GZYdHtiK50j1a/view?usp=sharing"
                 target="_blank"
                 rel="noreferrer"
                 className="block py-2 p-0 m-0 text-[#ADB7BE] sm:text-xl rounded md:p-0  hover:bg-slate-700">
