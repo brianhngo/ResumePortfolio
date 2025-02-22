@@ -1,89 +1,89 @@
-'use client';
-import React, { useTransition, useState } from 'react';
-import Image from 'next/image';
-import TabButton from './TabButton';
+"use client";
+import React, { useTransition, useState } from "react";
+import Image from "next/image";
+import TabButton from "./TabButton";
 
 const TAB_DATA = [
   {
-    title: 'Skills',
-    id: 'skills',
+    title: "Skills",
+    id: "skills",
     content: (
-      <ul className="flex flex-row flex-wrap justify-between text-md">
-        <div className="w-1/2">
+      <ul className='flex flex-row flex-wrap justify-between text-md'>
+        <div className='w-1/2'>
           <strong>Programming Languages:</strong>
-          <ul className="list-disc pl-6">
+          <ul className='list-disc pl-6'>
             <li>
-              <div className="flex items-center space-x-2">
+              <div className='flex items-center space-x-2'>
                 <span>Matlab</span>
                 <Image
-                  src="/technologies/matlab.svg"
-                  alt="Matlab icon"
+                  src='/technologies/matlab.svg'
+                  alt='Matlab icon'
                   width={24}
                   height={24}
                 />
               </div>
             </li>
             <li>
-              <div className="flex items-center space-x-2">
+              <div className='flex items-center space-x-2'>
                 <span>Python</span>
                 <Image
-                  src="/technologies/python.svg"
-                  alt="Python icon"
+                  src='/technologies/python.svg'
+                  alt='Python icon'
                   width={24}
                   height={24}
                 />
               </div>
             </li>
             <li>
-              <div className="flex items-center space-x-2">
+              <div className='flex items-center space-x-2'>
                 <span>Arduino</span>
                 <Image
-                  src="/technologies/arduino.svg"
-                  alt="Arduino icon"
+                  src='/technologies/arduino.svg'
+                  alt='Arduino icon'
                   width={24}
                   height={24}
                 />
               </div>
             </li>
             <li>
-              <div className="flex items-center space-x-2">
+              <div className='flex items-center space-x-2'>
                 <span>Javascript</span>
                 <Image
-                  src="/technologies/javascript.svg"
-                  alt="Javascript icon"
+                  src='/technologies/javascript.svg'
+                  alt='Javascript icon'
                   width={24}
                   height={24}
                 />
               </div>
             </li>
             <li>
-              <div className="flex items-center space-x-2">
+              <div className='flex items-center space-x-2'>
                 <span>Typescript</span>
                 <Image
-                  src="/technologies/Typescript.svg"
-                  alt="Typescript icon"
+                  src='/technologies/Typescript.svg'
+                  alt='Typescript icon'
                   width={24}
                   height={24}
                 />
               </div>
             </li>
             <li>
-              <div className="flex items-center space-x-2">
+              <div className='flex items-center space-x-2'>
                 <span>HTML </span>
                 <Image
-                  src="/technologies/html.svg"
-                  alt="HTML icon"
+                  src='/technologies/html.svg'
+                  alt='HTML icon'
                   width={24}
                   height={24}
                 />
               </div>
             </li>
             <li>
-              <div className="flex items-center space-x-2">
+              <div className='flex items-center space-x-2'>
                 <span>CSS </span>
                 <Image
-                  src="/technologies/css.svg"
-                  alt="CSS icon"
+                  src='/technologies/css.svg'
+                  alt='CSS icon'
                   width={24}
                   height={24}
                 />
@@ -91,46 +91,57 @@ const TAB_DATA = [
             </li>
           </ul>
           <strong>Databases:</strong>
-          <ul className="list-disc pl-6">
+          <ul className='list-disc pl-6'>
             <li>
-              <div className="flex items-center space-x-2">
+              <div className='flex items-center space-x-2'>
                 <span>PostgreSQL</span>
                 <Image
-                  src="/technologies/postgresql.svg"
-                  alt="postgreSQL icon"
+                  src='/technologies/postgresql.svg'
+                  alt='postgreSQL icon'
                   width={24}
                   height={24}
                 />
               </div>
             </li>
             <li>
-              <div className="flex items-center space-x-2">
+              <div className='flex items-center space-x-2'>
                 <span>SQL</span>
                 <Image
-                  src="/technologies/sql.svg"
-                  alt="SQL icon"
+                  src='/technologies/sql.svg'
+                  alt='SQL icon'
                   width={24}
                   height={24}
                 />
               </div>
             </li>
             <li>
-              <div className="flex items-center space-x-2">
-                <span>Firebase</span>
+              <div className='flex items-center space-x-2'>
+                <span>Firebase/Google Cloud</span>
                 <Image
-                  src="/technologies/firebase.svg"
-                  alt="Firebase icon"
+                  src='/technologies/firebase.svg'
+                  alt='Firebase icon'
                   width={24}
                   height={24}
                 />
               </div>
             </li>
             <li>
-              <div className="flex items-center space-x-2">
+              <div className='flex items-center space-x-2'>
                 <span>Supabase</span>
                 <Image
-                  src="/technologies/supabase.svg"
-                  alt="Supabase icon"
+                  src='/technologies/supabase.svg'
+                  alt='Supabase icon'
+                  width={24}
+                  height={24}
+                />
+              </div>
+            </li>
+            <li>
+              <div className='flex items-center space-x-2'>
+                <span>AWS</span>
+                <Image
+                  src='/technologies/aws.svg'
+                  alt='Supabase icon'
                   width={24}
                   height={24}
                 />
@@ -138,111 +149,122 @@ const TAB_DATA = [
             </li>
           </ul>
         </div>
-        <div className="w-1/2">
+        <div className='w-1/2'>
           <strong>FrontEnd:</strong>
-          <ul className="list-disc pl-6">
+          <ul className='list-disc pl-6'>
             <li>
-              <div className="flex items-center space-x-2">
+              <div className='flex items-center space-x-2'>
                 <span>Javascript</span>
                 <Image
-                  src="/technologies/javascript.svg"
-                  alt="Javascript icon"
+                  src='/technologies/javascript.svg'
+                  alt='Javascript icon'
                   width={24}
                   height={24}
                 />
               </div>
             </li>
             <li>
-              <div className="flex items-center space-x-2">
+              <div className='flex items-center space-x-2'>
                 <span>HTML </span>
                 <Image
-                  src="/technologies/html.svg"
-                  alt="HTML icon"
+                  src='/technologies/html.svg'
+                  alt='HTML icon'
                   width={24}
                   height={24}
                 />
               </div>
             </li>
             <li>
-              <div className="flex items-center space-x-2">
+              <div className='flex items-center space-x-2'>
                 <span>CSS </span>
                 <Image
-                  src="/technologies/css.svg"
-                  alt="CSS icon"
+                  src='/technologies/css.svg'
+                  alt='CSS icon'
                   width={24}
                   height={24}
                 />
               </div>
             </li>
             <li>
-              <div className="flex items-center space-x-2">
+              <div className='flex items-center space-x-2'>
                 <span>Tailwind </span>
                 <Image
-                  src="/technologies/tailwind.svg"
-                  alt="Tailwind icon"
+                  src='/technologies/tailwind.svg'
+                  alt='Tailwind icon'
                   width={24}
                   height={24}
                 />
               </div>
             </li>
           </ul>
-          <strong>BackEnd:</strong>
-          <ul className="list-disc pl-6">
+          <strong>BackEnd Framework:</strong>
+          <ul className='list-disc pl-6'>
             <li>
-              <div className="flex items-center space-x-2">
+              <div className='flex items-center space-x-2'>
                 <span>Node.js </span>
                 <Image
-                  src="/technologies/nodejs.svg"
-                  alt="NodeJS icon"
+                  src='/technologies/nodejs.svg'
+                  alt='NodeJS icon'
                   width={24}
                   height={24}
                 />
               </div>
             </li>
             <li>
-              <div className="flex items-center space-x-2">
+              <div className='flex items-center space-x-2'>
                 <span>Express </span>
                 <Image
-                  src="/technologies/express.svg"
-                  alt="Express icon"
+                  src='/technologies/express.svg'
+                  alt='Express icon'
+                  width={24}
+                  height={24}
+                />
+              </div>
+            </li>
+            <li>
+              <div className='flex items-center space-x-2'>
+                <span>Django </span>
+                <Image
+                  src='/technologies/django.svg'
+                  alt='Express icon'
                   width={24}
                   height={24}
                 />
               </div>
             </li>
           </ul>
-          <strong>Frameworks:</strong>
-          <ul className="list-disc pl-6">
+          <strong>Frontend Frameworks:</strong>
+          <ul className='list-disc pl-6'>
             <li>
-              <div className="flex items-center space-x-2">
+              <div className='flex items-center space-x-2'>
                 <span>React</span>
                 <Image
-                  src="/technologies/react.svg"
-                  alt="React icon"
+                  src='/technologies/react.svg'
+                  alt='React icon'
                   width={24}
                   height={24}
                 />
               </div>
             </li>
             <li>
-              {' '}
-              <div className="flex items-center space-x-2">
+              {" "}
+              <div className='flex items-center space-x-2'>
                 <span>Next.js </span>
                 <Image
-                  src="/technologies/nextjs.svg"
-                  alt="NextJS icon"
+                  src='/technologies/nextjs.svg'
+                  alt='NextJS icon'
                   width={24}
                   height={24}
                 />
               </div>
             </li>
             <li>
-              {' '}
-              <div className="flex items-center space-x-2">
+              {" "}
+              <div className='flex items-center space-x-2'>
                 <span>Angular </span>
                 <Image
-                  src="/technologies/angular.svg"
-                  alt="Angular icon"
+                  src='/technologies/angular.svg'
+                  alt='Angular icon'
                   width={24}
                   height={24}
                 />
@@ -251,24 +273,24 @@ const TAB_DATA = [
           </ul>
         </div>
         <strong>Testing:</strong>
-        <ul className="list-disc grid grid-cols-2 lg:grid-cols-3 w-full space-y-2 pl-6">
-          <li className="">
-            <div className="flex items-center space-x-2 ">
+        <ul className='list-disc grid grid-cols-2 lg:grid-cols-3 w-full space-y-2 pl-6'>
+          <li className=''>
+            <div className='flex items-center space-x-2 '>
               <span>Jest</span>
               <Image
-                src="/technologies/jest.svg"
-                alt="Sequelize icon"
+                src='/technologies/jest.svg'
+                alt='Sequelize icon'
                 width={24}
                 height={24}
               />
             </div>
           </li>
-          <li className="">
-            <div className="flex items-center space-x-2 ">
+          <li className=''>
+            <div className='flex items-center space-x-2 '>
               <span>Vitest</span>
               <Image
-                src="/technologies/vitest.svg"
-                alt="Sequelize icon"
+                src='/technologies/vitest.svg'
+                alt='Sequelize icon'
                 width={24}
                 height={24}
               />
@@ -277,46 +299,46 @@ const TAB_DATA = [
           <ul />
         </ul>
         <strong>Libraries:</strong>
-        <ul className="list-disc grid grid-cols-2 lg:grid-cols-3 w-full space-y-2 pl-6">
-          <li className="">
-            <div className="flex items-center space-x-2 ">
+        <ul className='list-disc grid grid-cols-2 lg:grid-cols-3 w-full space-y-2 pl-6'>
+          <li className=''>
+            <div className='flex items-center space-x-2 '>
               <span>Sequelize</span>
               <Image
-                src="/technologies/sequelize.svg"
-                alt="Sequelize icon"
+                src='/technologies/sequelize.svg'
+                alt='Sequelize icon'
                 width={24}
                 height={24}
               />
             </div>
           </li>
-          <li className="">
-            <div className="flex items-center space-x-2">
+          <li className=''>
+            <div className='flex items-center space-x-2'>
               <span>Redux</span>
               <Image
-                src="/technologies/redux.svg"
-                alt="Redux icon"
+                src='/technologies/redux.svg'
+                alt='Redux icon'
                 width={24}
                 height={24}
               />
             </div>
           </li>
           <li>
-            <div className="flex items-center space-x-2">
+            <div className='flex items-center space-x-2'>
               <span>Bootstrap</span>
               <Image
-                src="/technologies/bootstrap.svg"
-                alt="Bootstrap icon"
+                src='/technologies/bootstrap.svg'
+                alt='Bootstrap icon'
                 width={24}
                 height={24}
               />
             </div>
           </li>
           <li>
-            <div className="flex items-center space-x-2">
+            <div className='flex items-center space-x-2'>
               <span>Leaflet</span>
               <Image
-                src="/technologies/leaflet.svg"
-                alt="Leaflet icon"
+                src='/technologies/leaflet.svg'
+                alt='Leaflet icon'
                 width={24}
                 height={24}
               />
@@ -324,11 +346,11 @@ const TAB_DATA = [
           </li>
           <li>JWT</li>
           <li>
-            <div className="flex items-center space-x-2">
+            <div className='flex items-center space-x-2'>
               <span>React Native</span>
               <Image
-                src="/technologies/react.svg"
-                alt="React icon"
+                src='/technologies/react.svg'
+                alt='React icon'
                 width={24}
                 height={24}
               />
@@ -336,44 +358,44 @@ const TAB_DATA = [
           </li>
           <li>Axios</li>
           <li>
-            <div className="flex items-center space-x-2">
+            <div className='flex items-center space-x-2'>
               <span>Websocket</span>
               <Image
-                src="/technologies/websocket.svg"
-                alt="Websocket icon"
+                src='/technologies/websocket.svg'
+                alt='Websocket icon'
                 width={24}
                 height={24}
               />
             </div>
           </li>
           <li>
-            <div className="flex items-center space-x-2">
+            <div className='flex items-center space-x-2'>
               <span>Webpack</span>
               <Image
-                src="/technologies/webpack.svg"
-                alt="Webpack icon"
+                src='/technologies/webpack.svg'
+                alt='Webpack icon'
                 width={24}
                 height={24}
               />
             </div>
           </li>
           <li>
-            <div className="flex items-center space-x-2">
+            <div className='flex items-center space-x-2'>
               <span>Vite</span>
               <Image
-                src="/technologies/vite.svg"
-                alt="Vite icon"
+                src='/technologies/vite.svg'
+                alt='Vite icon'
                 width={24}
                 height={24}
               />
             </div>
           </li>
           <li>
-            <div className="flex items-center space-x-2">
+            <div className='flex items-center space-x-2'>
               <span>Tailwind</span>
               <Image
-                src="/technologies/tailwind.svg"
-                alt="Tailwind icon"
+                src='/technologies/tailwind.svg'
+                alt='Tailwind icon'
                 width={24}
                 height={24}
               />
@@ -381,33 +403,33 @@ const TAB_DATA = [
           </li>
           <li>Metro Builder</li>
           <li>
-            <div className="flex items-center space-x-2">
+            <div className='flex items-center space-x-2'>
               <span>Expo Go</span>
               <Image
-                src="/technologies/expo.svg"
-                alt="Expo icon"
+                src='/technologies/expo.svg'
+                alt='Expo icon'
                 width={24}
                 height={24}
               />
             </div>
           </li>
           <li>
-            <div className="flex items-center space-x-2">
+            <div className='flex items-center space-x-2'>
               <span>Chart.js</span>
               <Image
-                src="/technologies/chartjs.svg"
-                alt="ChartJs icon"
+                src='/technologies/chartjs.svg'
+                alt='ChartJs icon'
                 width={24}
                 height={24}
               />
             </div>
           </li>
           <li>
-            <div className="flex items-center space-x-2">
+            <div className='flex items-center space-x-2'>
               <span>Postman</span>
               <Image
-                src="/technologies/postman.svg"
-                alt="Postman icon"
+                src='/technologies/postman.svg'
+                alt='Postman icon'
                 width={24}
                 height={24}
               />
@@ -418,10 +440,10 @@ const TAB_DATA = [
     ),
   },
   {
-    title: 'Education',
-    id: 'education',
+    title: "Education",
+    id: "education",
     content: (
-      <ul className="list-disc pl-2">
+      <ul className='list-disc pl-2'>
         <li>
           Software Engineering & Web Development Bootcamp Certificate @
           FullStack Academy
@@ -431,10 +453,10 @@ const TAB_DATA = [
     ),
   },
   {
-    title: 'Certifications',
-    id: 'certifications',
+    title: "Certifications",
+    id: "certifications",
     content: (
-      <ul className="list-disc pl-2">
+      <ul className='list-disc pl-2'>
         <li>Udemy - The Complete SQL Bootcamp : Go from Zero to Hero</li>
         <li> PCEP – Certified Entry Level Python Programmer </li>
         <li> Lean Six Sigma White Belt Certification</li>
@@ -444,7 +466,7 @@ const TAB_DATA = [
 ];
 
 const AboutSection = () => {
-  const [tab, setTab] = useState('skills');
+  const [tab, setTab] = useState("skills");
   const [isPending, startTransition] = useTransition();
 
   const handleTabChange = (id) => {
@@ -454,21 +476,21 @@ const AboutSection = () => {
   };
 
   return (
-    <section className="text-white" id="about">
-      <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
-        <div className="flex flex-col">
+    <section className='text-white' id='about'>
+      <div className='md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16'>
+        <div className='flex flex-col'>
           <Image
-            className="h-[600px] w-[500px] object-cover "
-            style={{ alignItems: 'normal' }}
-            src="/images/about-image.png"
-            alt="aboutimage"
+            className='h-[600px] w-[500px] object-cover '
+            style={{ alignItems: "normal" }}
+            src='/images/about-image.png'
+            alt='aboutimage'
             width={500}
             height={1000}
           />
         </div>
-        <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
-          <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
-          <p className="text-base lg:text-lg ">
+        <div className='mt-4 md:mt-0 text-left flex flex-col h-full'>
+          <h2 className='text-4xl font-bold text-white mb-4'>About Me</h2>
+          <p className='text-base lg:text-lg '>
             I’m a former R&D Engineer turned Software Developer with a passion
             for building impactful solutions. My transition from biotech to tech
             allowed me to apply the problem-solving and process-optimization
@@ -481,7 +503,7 @@ const AboutSection = () => {
             complex technical challenges, enabling me to create efficient and
             scalable solutions.
           </p>
-          <p className="text-base lg:text-lg mt-3">
+          <p className='text-base lg:text-lg mt-3'>
             Outside of work, I’m an avid golfer, pickleball enthusiast, and
             snorkeler, always looking for new ways to stay active and explore
             the outdoors. I also have an addiction to solving escape
@@ -490,27 +512,27 @@ const AboutSection = () => {
             hobbies keep me sharp and energized, allowing me to approach coding
             with a fresh and focused mindset.
           </p>
-          <div className="flex flex-row justify-start mt-8">
+          <div className='flex flex-row justify-start mt-8'>
             <TabButton
-              selectTab={() => handleTabChange('skills')}
-              active={tab === 'skills'}>
-              {' '}
-              Skills{' '}
+              selectTab={() => handleTabChange("skills")}
+              active={tab === "skills"}>
+              {" "}
+              Skills{" "}
             </TabButton>
             <TabButton
-              selectTab={() => handleTabChange('education')}
-              active={tab === 'education'}>
-              {' '}
-              Education{' '}
+              selectTab={() => handleTabChange("education")}
+              active={tab === "education"}>
+              {" "}
+              Education{" "}
             </TabButton>
             <TabButton
-              selectTab={() => handleTabChange('certifications')}
-              active={tab === 'certifications'}>
-              {' '}
-              Certifications{' '}
+              selectTab={() => handleTabChange("certifications")}
+              active={tab === "certifications"}>
+              {" "}
+              Certifications{" "}
             </TabButton>
           </div>
-          <div className="mt-8">
+          <div className='mt-8'>
             {TAB_DATA.find((t) => t.id === tab).content}
           </div>
         </div>

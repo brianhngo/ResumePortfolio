@@ -1,49 +1,49 @@
-'use client';
-import React from 'react';
+"use client";
+import React from "react";
 
 import {
   VerticalTimeline,
   VerticalTimelineElement,
-} from 'react-vertical-timeline-component';
-import 'react-vertical-timeline-component/style.min.css';
-import Image from 'next/image';
+} from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
+import Image from "next/image";
 
 export default function Timeline() {
   return (
-    <section className="flex flex-col items-center justify-center min-h-screen text-black py-8 px-4 mt-5">
-      <h1 className="text-center md:text-[3.75rem] text-[2.5rem] font-bold leading-none tracking-tight text-white">
+    <section className='flex flex-col items-center justify-center min-h-screen text-black py-8 px-4 mt-5'>
+      <h1 className='text-center md:text-[3.75rem] text-[2.5rem] font-bold leading-none tracking-tight text-white'>
         My Professional Timeline
       </h1>
       <VerticalTimeline>
         <VerticalTimelineElement
           visible={true}
-          className="vertical-timeline-element--work"
-          date={<span style={{ color: '#fff' }}>Apr 2023 - Aug 2023</span>}
-          iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+          className='vertical-timeline-element--work'
+          date={<span style={{ color: "#fff" }}>Aug 2024 - Current</span>}
+          iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
           icon={
             <div
               style={{
-                position: 'relative',
-                width: '100%',
-                height: '100%',
-                borderRadius: '50%',
-                overflow: 'hidden',
+                position: "relative",
+                width: "100%",
+                height: "100%",
+                borderRadius: "50%",
+                overflow: "hidden",
               }}>
               <Image
-                src="/others/abstruse1.jpeg"
-                alt="Bootcamp"
-                layout="fill"
-                objectFit="cover" // Use cover to ensure the image covers the container
+                src='/others/abstruse1.jpeg'
+                alt='Bootcamp'
+                layout='fill'
+                objectFit='cover' // Use cover to ensure the image covers the container
               />
             </div>
           }>
-          <h3 className="vertical-timeline-element-title">
+          <h3 className='vertical-timeline-element-title'>
             Software Developer
           </h3>
-          <h4 className="vertical-timeline-element-subtitle rounded-full">
+          <h4 className='vertical-timeline-element-subtitle rounded-full'>
             Abstruse
           </h4>
-          <ul className="list-disc ml-6 space-y-2">
+          <ul className='list-disc ml-6 space-y-2'>
             <li>
               Developed API routes with Node.js and JavaScript, integrating
               third-party services like SendGrid for automated email solutions.
@@ -75,33 +75,33 @@ export default function Timeline() {
         </VerticalTimelineElement>
         <VerticalTimelineElement
           visible={true}
-          className="vertical-timeline-element--work"
-          date={<span style={{ color: '#fff' }}>Apr 2023 - Aug 2023</span>}
-          iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+          className='vertical-timeline-element--work'
+          date={<span style={{ color: "#fff" }}>Apr 2023 - Aug 2023</span>}
+          iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
           icon={
             <div
               style={{
-                position: 'relative',
-                width: '100%',
-                height: '100%',
-                borderRadius: '50%',
-                overflow: 'hidden',
+                position: "relative",
+                width: "100%",
+                height: "100%",
+                borderRadius: "50%",
+                overflow: "hidden",
               }}>
               <Image
-                src="/others/fsa.png"
-                alt="Bootcamp"
-                layout="fill"
-                objectFit="cover" // Use cover to ensure the image covers the container
+                src='/others/fsa.png'
+                alt='Bootcamp'
+                layout='fill'
+                objectFit='cover' // Use cover to ensure the image covers the container
               />
             </div>
           }>
-          <h3 className="vertical-timeline-element-title">
+          <h3 className='vertical-timeline-element-title'>
             Software Engineering & Web Development Bootcamp
           </h3>
-          <h4 className="vertical-timeline-element-subtitle rounded-full">
+          <h4 className='vertical-timeline-element-subtitle rounded-full'>
             Fullstack Academy
           </h4>
-          <ul className="list-disc ml-6 space-y-2">
+          <ul className='list-disc ml-6 space-y-2'>
             <li>
               Successfully completed rigorous 17-week immersive program tailored
               acquiring a comprehensive understanding of the PERN stack
@@ -134,33 +134,33 @@ export default function Timeline() {
         </VerticalTimelineElement>
         <VerticalTimelineElement
           visible={true}
-          className="vertical-timeline-element--work"
-          date={<span style={{ color: '#fff' }}>Apr 2023 - Aug 2023</span>}
-          iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+          className='vertical-timeline-element--work'
+          date={<span style={{ color: "#fff" }}>Apr 2023 - Aug 2023</span>}
+          iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
           icon={
             <div
               style={{
-                position: 'relative',
-                width: '100%',
-                height: '100%',
-                borderRadius: '50%',
-                overflow: 'hidden',
+                position: "relative",
+                width: "100%",
+                height: "100%",
+                borderRadius: "50%",
+                overflow: "hidden",
               }}>
               <Image
-                src="/others/BioceptLogo.png"
-                alt="Bootcamp"
-                layout="fill"
-                objectFit="cover" // Use cover to ensure the image covers the container
+                src='/others/BioceptLogo.png'
+                alt='Bootcamp'
+                layout='fill'
+                objectFit='cover' // Use cover to ensure the image covers the container
               />
             </div>
           }>
-          <h3 className="vertical-timeline-element-title">
+          <h3 className='vertical-timeline-element-title'>
             Associate R&D Engineer
           </h3>
-          <h4 className="vertical-timeline-element-subtitle">
+          <h4 className='vertical-timeline-element-subtitle'>
             Biocept <br /> San Diego, CA
           </h4>
-          <ul className="list-disc ml-6 space-y-2">
+          <ul className='list-disc ml-6 space-y-2'>
             <li>
               Collaborated as a lead member of the team that spearheaded the
               successful development of a cutting-edge microfluidic device,
@@ -187,33 +187,33 @@ export default function Timeline() {
         </VerticalTimelineElement>
         <VerticalTimelineElement
           visible={true}
-          className="vertical-timeline-element--work"
-          date={<span style={{ color: '#fff' }}>Apr 2023 - Aug 2023</span>}
-          iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+          className='vertical-timeline-element--work'
+          date={<span style={{ color: "#fff" }}>Apr 2023 - Aug 2023</span>}
+          iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
           icon={
             <div
               style={{
-                position: 'relative',
-                width: '100%',
-                height: '100%',
-                borderRadius: '50%',
-                overflow: 'hidden',
+                position: "relative",
+                width: "100%",
+                height: "100%",
+                borderRadius: "50%",
+                overflow: "hidden",
               }}>
               <Image
-                src="/others/BioceptLogo.png"
-                alt="Bootcamp"
-                layout="fill"
-                objectFit="cover" // Use cover to ensure the image covers the container
+                src='/others/BioceptLogo.png'
+                alt='Bootcamp'
+                layout='fill'
+                objectFit='cover' // Use cover to ensure the image covers the container
               />
             </div>
           }>
-          <h3 className="vertical-timeline-element-title">
+          <h3 className='vertical-timeline-element-title'>
             Research Associate I, Technology Development
           </h3>
-          <h4 className="vertical-timeline-element-subtitle">
+          <h4 className='vertical-timeline-element-subtitle'>
             Biocept <br /> San Diego, CA
           </h4>
-          <ul className="list-disc ml-6 space-y-2">
+          <ul className='list-disc ml-6 space-y-2'>
             <li>
               Partnered closely with external third-party companies to revamp
               and standardize company software contracts, resulting in optimized
@@ -245,33 +245,33 @@ export default function Timeline() {
         </VerticalTimelineElement>
         <VerticalTimelineElement
           visible={true}
-          className="vertical-timeline-element--work"
-          date={<span style={{ color: '#fff' }}>Apr 2023 - Aug 2023</span>}
-          iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+          className='vertical-timeline-element--work'
+          date={<span style={{ color: "#fff" }}>Apr 2023 - Aug 2023</span>}
+          iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
           icon={
             <div
               style={{
-                position: 'relative',
-                width: '100%',
-                height: '100%',
-                borderRadius: '50%',
-                overflow: 'hidden',
+                position: "relative",
+                width: "100%",
+                height: "100%",
+                borderRadius: "50%",
+                overflow: "hidden",
               }}>
               <Image
-                src="/others/Biofluidica.png"
-                alt="Bootcamp"
-                layout="fill"
-                objectFit="cover" // Use cover to ensure the image covers the container
+                src='/others/Biofluidica.png'
+                alt='Bootcamp'
+                layout='fill'
+                objectFit='cover' // Use cover to ensure the image covers the container
               />
             </div>
           }>
-          <h3 className="vertical-timeline-element-title">
+          <h3 className='vertical-timeline-element-title'>
             Manufacturing Intern
           </h3>
-          <h4 className="vertical-timeline-element-subtitle">
+          <h4 className='vertical-timeline-element-subtitle'>
             Biofluidica <br /> San Diego, CA
           </h4>
-          <ul className="list-disc ml-6 space-y-2">
+          <ul className='list-disc ml-6 space-y-2'>
             <li>
               Played a pivotal role in improving product quality by introducing
               a sterilization step into the manufacturing process, resulting in
@@ -297,30 +297,30 @@ export default function Timeline() {
         </VerticalTimelineElement>
         <VerticalTimelineElement
           visible={true}
-          className="vertical-timeline-element--education"
-          date={<span style={{ color: '#fff' }}>Apr 2023 - Aug 2023</span>}
-          iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+          className='vertical-timeline-element--education'
+          date={<span style={{ color: "#fff" }}>Apr 2023 - Aug 2023</span>}
+          iconStyle={{ background: "rgb(233, 30, 99)", color: "#fff" }}
           icon={
             <div
               style={{
-                position: 'relative',
-                width: '100%',
-                height: '100%',
-                borderRadius: '50%',
-                overflow: 'hidden',
+                position: "relative",
+                width: "100%",
+                height: "100%",
+                borderRadius: "50%",
+                overflow: "hidden",
               }}>
               <Image
-                src="/others/ucsd.jpeg"
-                alt="Bootcamp"
-                layout="fill"
-                objectFit="cover" // Use cover to ensure the image covers the container
+                src='/others/ucsd.jpeg'
+                alt='Bootcamp'
+                layout='fill'
+                objectFit='cover' // Use cover to ensure the image covers the container
               />
             </div>
           }>
-          <h3 className="vertical-timeline-element-title">
+          <h3 className='vertical-timeline-element-title'>
             Bachelor of Science in Bioengineering: Biotechnology
           </h3>
-          <h4 className="vertical-timeline-element-subtitle">
+          <h4 className='vertical-timeline-element-subtitle'>
             University of California, San Diego
           </h4>
         </VerticalTimelineElement>
